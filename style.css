@@ -9,7 +9,7 @@ body {
 }
 
 .head-img {
-    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(img/background-image.jpg);
+    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(background-image.jpg);
     background-repeat: no-repeat;
     background-position: center, center;
     background-size: cover;
