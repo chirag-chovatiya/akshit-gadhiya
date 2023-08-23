@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo';
+}
+
+.head-img {
+    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(img/background-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center, center;
+    background-size: cover;
+
+}
+
+.btn:hover {
+    background: #75a4fa;
+}
+
+.service {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .10);
+    transition: .5s;
+}
+
+.service:hover {
+    background: var(--primary);
+}
+
+.service * {
+    transition: .5s;
+}
+
+.service:hover * {
+    color: var(--light) !important;
+}
