@@ -9,7 +9,7 @@ body {
 }
 
 .head-img {
-    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(img/background1.jpeg);
+    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(img/parlamentbg.jpeg);
     background-repeat: no-repeat;
     background-position: center, center;
     background-size: cover;
