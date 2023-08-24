@@ -9,15 +9,32 @@ body {
 }
 
 .head-img {
-    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(background-image.jpg);
+    background-image: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .7)), url(img/background1.jpeg);
     background-repeat: no-repeat;
     background-position: center, center;
     background-size: cover;
 
 }
 
-.btn:hover {
-    background: #75a4fa;
+.custom-button {
+    --accent: #ffc107;
+    color: white;
+    text-shadow: none;
+    cursor: pointer;
+    line-height: 2.5rem;
+    max-width: 160px;
+    width: 100%;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+
+.custom-button:hover {
+    border-color: 2px solid var(--accent);
+    outline-offset: 15px;
+    color: var(--accent);
+}
+.btn{
+    border: 2px solid #ffc107;
 }
 
 .service {
