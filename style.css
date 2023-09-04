@@ -55,7 +55,6 @@ body {
 .service:hover * {
     color: var(--light) !important;
 }
-
 .carousel-image {
     height: 175px;
     /* Adjust the height as needed */
@@ -68,3 +67,7 @@ body {
 /* .black-border{
     border: 5px solid rgb(180, 158, 158);
 } */
+.contant1{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
