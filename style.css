@@ -23,7 +23,7 @@ body {
     text-shadow: none;
     cursor: pointer;
     line-height: 2.5rem;
-    max-width: 160px;
+    max-width: 175px;
     width: 100%;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
@@ -34,7 +34,8 @@ body {
     outline-offset: 15px;
     color: var(--accent);
 }
-.btn{
+
+.btn {
     border: 2px solid #ffc107;
 }
 
@@ -54,6 +55,18 @@ body {
 .service:hover * {
     color: var(--light) !important;
 }
+.carousel-image {
+    height: 175px;
+    /* Adjust the height as needed */
+    width: 100%;
+    /* Ensure images take the full width of the container */
+    object-fit: cover;
+    /* Maintain the aspect ratio and cover the container */
+}
+
+/* .black-border{
+    border: 5px solid rgb(180, 158, 158);
+} */
 .contant1{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
