@@ -12,15 +12,12 @@ function About() {
 					</div>
 					<div className="col-lg-7 d-flex align-items-center">
 						<div className="aximo-default-content libre-font m-left-gap-small">
-							<h2>Making your brand bigger than ever</h2>
+							<h2>Expanding your compliance  with expert care for unprecedented growth.</h2>
 							<p>
-								We help businesses & organizations promote their products, services or brands in the
-								online world with 12 years of experience. We have become a leader in digital
-								experiences, web design, and branding.{" "}
+							Care Comply Private Limited is dedicated to providing comprehensive financial and legal solutions tailored specifically for the corporate world. Our mission is to ensure seamless compliance and strategic growth for businesses, leveraging our expertise across various domains.{" "}
 							</p>
 							<p>
-								We love what we do with our clients to ensure their positioning and digital
-								transformation ensure the business meets every standard.
+							At Care Comply, our approach is encapsulated in our tagline: "Connect - Consult - Comply." We connect with our clients to understand their unique needs, consult with tailored solutions, and ensure they comply with all necessary regulations efficiently.
 							</p>
 							<div className="aximo-btn-wrap">
 								<Link className="aximo-default-btn pill corn-btn" to="/contact-us">

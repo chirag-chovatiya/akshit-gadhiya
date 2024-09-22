@@ -415,9 +415,9 @@ h1,
 
 h2,
 .h2 {
-	font-size: 70px;
-	line-height: 1.07em; /* 116.667% */
-	letter-spacing: -0.7px;
+	font-size: 50px;
+	line-height: 1.30em; /* 116.667% */
+	/* letter-spacing: -0.7px; */
 }
 @media (max-width: 1199px) {
 	h2,
@@ -2217,9 +2217,9 @@ header.aximo-header-section.aximo-header7.sticky-menu {
 		margin-bottom: 40px;
 	}
 }
-.aximo-footer-textarea img {
+/* .aximo-footer-textarea img {
 	margin-bottom: 30px;
-}
+} */
 .aximo-footer-textarea p {
 	font-size: 21px;
 	color: var(--heading-color6);
@@ -2353,7 +2353,7 @@ header.aximo-header-section.aximo-header7.sticky-menu {
 	color: var(--heading-color6);
 }
 .aximo-footer-section5 .aximo-footer-menu ul li a {
-	color: #2c2c2c;
+	color: var(--heading-color6);
 }
 .aximo-footer-section5 .aximo-footer-menu ul li a:hover {
 	color: var(--corn-color);
@@ -2515,8 +2515,8 @@ header.aximo-header-section.aximo-header7.sticky-menu {
 	-webkit-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
 	overflow: hidden;
-	color: var(--light-bg2) !important;
-	background-color: var(--red-bg);
+	color: var(--heading-color6) !important;
+	background-color: #92dcfd;
 	position: relative;
 	z-index: 0;
 	overflow: hidden;
@@ -3300,6 +3300,9 @@ button#aximo-submit-btn2:hover .aximo-label-up {
 h1.post__title {
 	margin-bottom: 50px;
 	color: var(--white-smoke);
+	font-size: 50px;
+	letter-spacing: 0;
+	line-height: 1em;
 }
 @media (max-width: 1400px) {
 	h1.post__title {
@@ -4215,41 +4218,12 @@ button#aximo-hero-subscription-btn:hover .aximo-label-up {
 	}
 }
 .aximo-hero-content5 h1 {
-	font-size: 60px;
-	line-height: normal;
+	font-size: 40px;
+	line-height: 60px;
 	margin-bottom: 30px;
+	margin-top: 30px;
 	color: var(--heading-color6);
 	font-family: "Libre Baskerville", serif;
-}
-@media (max-width: 1669px) {
-	.aximo-hero-content5 h1 {
-		font-size: 60px;
-		line-height: normal;
-	}
-}
-@media (max-width: 1200px) {
-	.aximo-hero-content5 h1 {
-		font-size: 70px;
-		line-height: normal;
-	}
-}
-@media (max-width: 991px) {
-	.aximo-hero-content5 h1 {
-		font-size: 60px;
-		line-height: normal;
-	}
-}
-@media (max-width: 767px) {
-	.aximo-hero-content5 h1 {
-		font-size: 48px;
-		line-height: normal;
-	}
-}
-@media (max-width: 479px) {
-	.aximo-hero-content5 h1 {
-		font-size: 36px;
-		line-height: normal;
-	}
 }
 .aximo-hero-content5 p {
 	font-size: 21px;
@@ -6274,7 +6248,8 @@ img.aximo-video-circle {
 	margin-bottom: 24px;
 	color: var(--light-color4);
 	font-family: "Libre Baskerville", serif;
-	font-size: 50px;
+	font-size: 40px;
+	line-height: 1.30em
 }
 .aximo-cta2-wrap p {
 	font-size: 21px;
@@ -8279,7 +8254,7 @@ a.aximo-connect-login img {
 }
 
 .aximo-section-padding4 {
-	padding: 70px 0 60px;
+	padding: 70px 0 70px;
 }
 @media (max-width: 991px) {
 	.aximo-section-padding4 {
@@ -8288,7 +8263,7 @@ a.aximo-connect-login img {
 }
 @media (max-width: 767px) {
 	.aximo-section-padding4 {
-		padding: 80px 0 0;
+		padding: 80px 0 80px;
 	}
 }
 
@@ -8329,7 +8304,8 @@ a.aximo-connect-login img {
 }
 
 .aximo-section-title {
-	padding-bottom: 80px;
+	padding-bottom: 40px;
+	color: var(--heading-color6);
 }
 .aximo-section-title.center {
 	margin: 0 auto;
@@ -8473,11 +8449,11 @@ a.aximo-connect-login img {
 	color: var(--light-color3);
 }
 .aximo-section-title.libre-font h2 {
-	letter-spacing: -0.5px;
+	line-height: 1.30em;
 	color: var(--heading-color4);
 	font-family: "Libre Baskerville", serif;
-	font-size: 50px;
-    line-height: 1.07em;
+	font-size: 40px;
+    line-height: 1.40em;
 }
 .aximo-section-title.libre-font.light h2 {
 	color: var(--light-color4);
@@ -8695,7 +8671,8 @@ a.aximo-connect-login img {
 	color: var(--heading-color4);
 	font-family: "Libre Baskerville", serif;
 	letter-spacing: -0.5px;
-	font-size: 50px
+	font-size: 31px;
+	line-height: 1.30em;
 }
 .aximo-default-content.bricolage-font h2 {
 	font-size: 90px;
@@ -9972,24 +9949,26 @@ a.comment-reply {
 	font-weight: 700;
 	display: block;
 	margin-bottom: 10px;
+	color: var(--heading-color6);
+
 }
 
 #aximo-main-btn {
 	width: 180px;
 	height: 60px;
 	display: flex;
-	color: #fffdf8;
+	color: var(--heading-color6);
 	font-size: 16px;
 	font-weight: 700;
 	align-items: center;
 	justify-content: center;
 	border-radius: 50px;
 	transition: all 0.4s;
-	background-color: var(--dark-bg);
+	background-color: #92dcfd;
 }
 #aximo-main-btn:hover {
-	color: var(--heading-color);
-	background-color: var(--accent-bg);
+	color: var(--white-color);
+	background-color: var(--heading-color6);
 }
 
 .aximo-contact-thumb {
@@ -10338,3 +10317,6 @@ button#aximo-notified-btn {
 	z-index: 1000;
 	transition: all 0.3s ease-in-out;
   }
+
+
+  

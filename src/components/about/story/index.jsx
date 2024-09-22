@@ -3,15 +3,15 @@ import StoryContent from "./StoryContent";
 import StoryPhotos from "./StoryPhotos";
 function Story() {
 	return (
-		<div className="section aximo-section-padding6">
+		<div className="section aximo-section-padding4">
 			<div className="container">
 				<div className="aximo-section-title center title-description">
 					<h2>
 						<span className="aximo-title-animation">
 							We think our story is
-							<span className="aximo-title-icon">
+							{/* <span className="aximo-title-icon">
 								<img src={Star2Img} alt="star" />
-							</span>
+							</span> */}
 						</span>
 						worth sharing with you
 					</h2>
