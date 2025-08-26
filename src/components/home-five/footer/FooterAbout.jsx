@@ -1,4 +1,4 @@
-import DarkLogoImg from "../../../assets/images/logo/logo.png";
+import DarkLogoImg from "../../../assets/images/logo/NewLogo-1.png";
 import { Link } from "react-router-dom";
 function FooterAbout() {
   return (
@@ -6,20 +6,17 @@ function FooterAbout() {
       <div className="d-flex align-items-center mb-4">
         <div className="brand-logo">
           <Link to="/">
-            <img src={DarkLogoImg} alt="Logo" className="light-version-logo" />
+            <img src={DarkLogoImg} alt="Logo" className="light-version-logo header-logo-large" />
           </Link>
-        </div>
-        <div className="ms-2 ">
-          <p className="mb-0 fs-5 fade-in-text">Care Comply</p>
         </div>
       </div>
 
-      <p>
+      <p className="tracking-wide">
         We are a compliance-focused consulting firm, dedicated to helping
         businesses grow by providing expert financial and legal solutions. With
-        a proven track record of success, we’ve partnered with diverse
+        a proven track record of success, we've partnered with diverse
         organizations to ensure seamless compliance and drive
-        sustainable growth.
+        sustainable growth.
       </p>
       {/* <div className="aximo-social-icon aximo-social-icon4">
         <ul>

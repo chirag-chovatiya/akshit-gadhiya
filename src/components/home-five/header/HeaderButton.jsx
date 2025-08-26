@@ -6,6 +6,10 @@ function HeaderButton() {
 				<span className="aximo-label-up">Contact Us</span>
 				<span className="aximo-label-up">Contact Us</span>
 			</Link>
+			<Link className="aximo-default-btn aximo-header-btn pill corn-btn ms-3" to="/login">
+				<span className="aximo-label-up">Login</span>
+				<span className="aximo-label-up">Login</span>
+			</Link>
 		</div>
 	);
 }

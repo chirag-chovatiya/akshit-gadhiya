@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /**!
 
     Template Name: 'Relik-Admin Dashboard'
@@ -4229,6 +4233,7 @@ button#aximo-hero-subscription-btn:hover .aximo-label-up {
 	font-size: 21px;
 	margin: 0 50px 24px;
 	color: var(--heading-color6);
+	text-align: justify;
 }
 @media (max-width: 767px) {
 	.aximo-hero-content5 p {
@@ -6256,6 +6261,7 @@ img.aximo-video-circle {
 	color: var(--light-color4);
 	max-width: 740px;
 	margin: 0 auto 50px;
+	text-align: justify;
 }
 
 .aximo-cta-shape3 {
@@ -7912,6 +7918,7 @@ img.swipeimage {
 }
 .aximo-marketing-services-data p {
 	color: var(--light-color4);
+	text-align: justify;
 }
 .aximo-marketing-services-btn {
 	flex: 0 0 20%;
@@ -8004,7 +8011,7 @@ a.forgot-password {
 
 .aximo-account-wrap {
 	padding: 40px;
-	max-width: 856px;
+	max-width: 650px; /* Reduced width for login/signup forms */
 	border-radius: 10px;
 	margin: 0 auto;
 	border: 1px solid var(--heading-color);
@@ -8566,6 +8573,7 @@ a.aximo-connect-login img {
 }
 .aximo-default-content p {
 	font-size: 21px;
+	text-align: justify;
 }
 @media (max-width: 767px) {
 	.aximo-default-content p {
@@ -10318,5 +10326,9 @@ button#aximo-notified-btn {
 	transition: all 0.3s ease-in-out;
   }
 
-
-  
+.header-logo-large {
+    max-height: 80px; /* Adjust as needed */
+    max-width: 180px; /* Adjust as needed */
+    height: auto;
+    width: auto;
+}

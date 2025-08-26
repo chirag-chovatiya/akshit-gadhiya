@@ -11,6 +11,8 @@ import SinglePortfolio from "../page/portfolio/SinglePortfolio";
 import Service from "../page/service";
 import SingleService from "../page/service/SingleService.jsx";
 import Faq from "../page/utility/Faq.jsx";
+import SignIn from "../page/auth/SignIn.jsx";
+import SignUp from "../page/auth/SignUp.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -88,93 +90,19 @@ export const router = createBrowserRouter([
 						element: <SinglePortfolio />,
 					},
 					{
+						path: "/login",
+						element: <SignIn />,
+					},
+					{
+						path: "/signup",
+						element: <SignUp />,
+					},
+					{
 						path: "*",
 						element: <ErrorPage />,
 					},
 				],
 			},
-			// {
-			// 	path: "/",
-			// 	element: <LayoutTwo />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-two",
-			// 			element: <HomeTwo />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutThree />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-three",
-			// 			element: <HomeThree />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutFour />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-four",
-			// 			element: <HomeFour />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutFive />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-five",
-			// 			element: <HomeFive />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutSix />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-six",
-			// 			element: <HomeSix />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutSeven />,
-			// 	children: [
-			// 		{
-			// 			path: "/home-seven",
-			// 			element: <HomeSeven />,
-			// 		},
-			// 	],
-			// },
-			// {
-			// 	path: "/",
-			// 	element: <LayoutEight />,
-			// 	children: [
-			// 		{
-			// 			path: "/coming-soon",
-			// 			element: <CommingSoon />,
-			// 		},
-			// 		{
-			// 			path: "/reset-password",
-			// 			element: <Reset />,
-			// 		},
-			// 		{
-			// 			path: "/sign-up",
-			// 			element: <SignUp />,
-			// 		},
-			// 		{
-			// 			path: "/sign-in",
-			// 			element: <SignIn />,
-			// 		},
-			// 	],
-			// },
 		],
 	},
 ]);

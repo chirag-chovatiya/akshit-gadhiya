@@ -1,19 +1,31 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StarImg from "../../assets/images/v1/star2.png";
 import Field from "../common/Field";
 
 function SignInForm() {
+	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+	} = useForm({
+		defaultValues: {
+			email: "test@example.com",
+			password: "password123",
+		},
+	});
 	const submitForm = (formData) => {
-		console.log("Submite Form Data = ", formData);
+		console.log("Submitted Form Data = ", formData);
+		// Simulate successful login
+		if (formData.email === "test@example.com" && formData.password === "password123") {
+			navigate("/dashboard");
+		} else {
+			alert("Invalid credentials");
+		}
 	};
 	return (
-		<div className="section aximo-section-padding">
+		<div className="section aximo-section-padding5">
 			<div className="container">
 				<div className="aximo-account-title">
 					<h2>
@@ -66,22 +78,14 @@ function SignInForm() {
 						</div>
 
 						<button id="aximo-account-btn" type="submit">
-							Create account
+							Login
 						</button>
 						<div className="aximo-or">
 							<p>or</p>
 						</div>
-
-						<a href="https://google.com" target="_blank" className="aximo-connect-login">
-							Sign up with Google
-						</a>
-						<a href="https://fb.com" target="_blank" className="aximo-connect-login">
-							Sign up with Facebook
-						</a>
-
 						<div className="aximo-account-bottom">
 							<p>
-								Not a member yet? <Link to="/sign-up">Sign up here</Link>
+								Not a member yet? <Link to="/signup">Sign up here</Link>
 							</p>
 						</div>
 					</form>
