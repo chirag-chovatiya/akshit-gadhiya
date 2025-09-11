@@ -13,6 +13,8 @@ import SingleService from "../page/service/SingleService.jsx";
 import Faq from "../page/utility/Faq.jsx";
 import SignIn from "../page/auth/SignIn.jsx";
 import SignUp from "../page/auth/SignUp.jsx";
+import DashboardPage from "../page/dashboard/DashboardPage.jsx";
+
 
 export const router = createBrowserRouter([
 	{
@@ -104,5 +106,19 @@ export const router = createBrowserRouter([
 				],
 			},
 		],
+	},
+	{
+		path: "/dashboard",
+		element: <DashboardPage />,
+		// children: [
+		// 	{
+		// 		path: "/dashboard",
+		// 		element: <MainDashboardContent />,
+		// 	},
+		// 	{
+		// 		path: "/dashboard/blog",
+		// 		element: <BlogContent />,
+		// 	},
+		// ],
 	},
 ]);
