@@ -6,7 +6,7 @@ import ServicesSection from "./ServicesSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen mb-5 flex flex-col">
       <HeroSection />
       <AboutSection />
       <ServicesSection />

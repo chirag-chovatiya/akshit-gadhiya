@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-16 px-4">
+    <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-10 px-4">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left: Form */}
