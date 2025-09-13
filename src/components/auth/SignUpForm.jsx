@@ -1,94 +1,125 @@
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import StarImg from "../../assets/images/v1/star2.png";
-import Field from "../common/Field";
-function SignUpForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const submitForm = (formData) => {
-    console.log("Submite Form Data = ", formData);
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+const SignupForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [panNumber, setPanNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle signup logic here
+    console.log('Signup attempt with:', { name, email, mobileNumber, panNumber, password, confirmPassword });
+    // In a real application, you would redirect after successful signup
   };
+
   return (
-    <div className="section aximo-section-padding5">
-      <div className="container">
-        <div className="aximo-account-title">
-          <h2>
-            <span className="aximo-title-animation">
-              Create Account
-              <span className="aximo-title-icon">
-                <img src={StarImg} alt="Star" />
-              </span>
-            </span>
-          </h2>
+    <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto my-10">
+      <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </div>
-        <div className="aximo-account-wrap">
-          <form onSubmit={handleSubmit(submitForm)}>
-            <div className="aximo-account-field">
-              <Field label="Enter your full name" error={errors.fname}>
-                <input
-                  {...register("fname", { required: "Full Name is required." })}
-                  type="text"
-                  name="fname"
-                  id="fname"
-                  placeholder="Adam Smith"
-                />
-              </Field>
-            </div>
-            <div className="aximo-account-field">
-              <Field label="Enter email address" error={errors.email}>
-                <input
-                  {...register("email", { required: "Email is required." })}
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="example@gmail.com"
-                />
-              </Field>
-            </div>
-            <div className="aximo-account-field">
-              <Field label="Enter Password" error={errors.password}>
-                <input
-                  {...register("password", {
-                    required: "Password is required.",
-                    minLength: {
-                      value: 8,
-                      message: "Your password must be at least 8 characters.",
-                    },
-                  })}
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Enter password"
-                />
-              </Field>
-            </div>
-            <div className="aximo-account-checkbox">
-              <input type="checkbox" id="check" />
-              <label htmlFor="check">
-                I have read and accept the{" "}
-                <Link to="/">Terms & Conditions</Link> and
-                <Link to="/"> Privacy Policy</Link>
-              </label>
-            </div>
-            <button id="aximo-account-btn" type="submit">
-              Create account
-            </button>
-            <div className="aximo-or">
-              <p>or</p>
-            </div>
-            <div className="aximo-account-bottom">
-              <p>
-                Already have an account? <Link to="/login">Log in here</Link>
-              </p>
-            </div>
-          </form>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-      </div>
+        <div className="mb-4">
+          <label htmlFor="mobileNumber" className="block text-gray-700 text-sm font-bold mb-2">
+            Mobile Number
+          </label>
+          <input
+            type="tel"
+            id="mobileNumber"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="panNumber" className="block text-gray-700 text-sm font-bold mb-2">
+            PAN Number
+          </label>
+          <input
+            type="text"
+            id="panNumber"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={panNumber}
+            onChange={(e) => setPanNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-6">
+          <label htmlFor="confirmPassword" className="block text-gray-700 text-sm font-bold mb-2">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            id="confirmPassword"
+            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between mb-4">
+          <button
+            type="submit"
+            className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-full focus:outline-none focus:shadow-outline w-full"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div className="flex items-center my-4">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="flex-shrink mx-4 text-gray-500">OR</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+        <p className="text-center text-gray-700 text-sm">
+          Already a member?{' '}
+          <Link to="/login" className="text-blue-500 hover:text-blue-800 font-bold">
+            Login here
+          </Link>
+        </p>
+      </form>
     </div>
   );
-}
+};
 
-export default SignUpForm;
+export default SignupForm;
