@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Preloader from "../components/Loader/loader";
 import ScrollToTop from "../components/loader/ScrollToTop";
+import Preloader from "../components/loader/Preloader";
 function LayoutLoader() {
 	return (
 		<>
