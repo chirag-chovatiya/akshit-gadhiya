@@ -29,7 +29,7 @@ const HeroSection = () => {
           <Button
             text="Let's Talk"
             onClick={() => alert("Talk button clicked!")}
-            className="bg-custom-blue text-white font-bold py-3 px-10 rounded-full text-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
+            className="bg-custom-blue text-white hover:bg-custom-green font-bold py-3 px-10 rounded-full text-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
       </section>

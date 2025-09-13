@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"; // Import Link
 const MENU_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "#" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Contact Us", href: "/contact" }, // Update Contact Us link
 ];
 

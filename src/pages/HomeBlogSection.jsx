@@ -1,10 +1,12 @@
 import React from "react";
+import BlogCard from "../components/BlogCard";
+import Button from "../components/button";
 
 const dummyBlogs = [
   {
     id: 1,
     title: "The Importance of Regular Check-ups",
-    excerpt:
+    description:
       "Regular health check-ups are crucial for early detection and prevention of diseases...",
     image: "/images/blog/blog1.png",
     category: "Health",
@@ -13,7 +15,7 @@ const dummyBlogs = [
   {
     id: 2,
     title: "Understanding Your Medication: A Guide",
-    excerpt:
+    description:
       "Knowing your medications, their purpose, and potential side effects is vital for your health...",
     image: "/images/blog/blog2.png",
     category: "Health",
@@ -22,7 +24,7 @@ const dummyBlogs = [
   {
     id: 3,
     title: "Healthy Eating Habits for Seniors",
-    excerpt:
+    description:
       "Nutrition plays a key role in maintaining health and energy levels as we age...",
     image: "/images/blog/blog3.png",
     category: "Nutrition",
@@ -31,7 +33,7 @@ const dummyBlogs = [
   {
     id: 4,
     title: "Staying Active: Simple Exercises at Home",
-    excerpt:
+    description:
       "Even light physical activity can significantly improve your well-being and mobility...",
     image: "/images/blog/blog4.png",
     category: "Fitness",
@@ -55,9 +57,9 @@ const BlogSection = () => {
           </p>
         </div>
 
-        {/* Featured Blog Split Layout */}
-        <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
-          {/* Image */}
+        {/* Featured Blog Banner Layout */}
+        <div className="relative grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-xl mb-10">
+          {/* Left Image */}
           <div className="relative rounded-3xl overflow-hidden shadow-xl group">
             <img
               src={featured.image}
@@ -69,72 +71,40 @@ const BlogSection = () => {
             </span>
           </div>
 
-          {/* Content */}
-          <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-custom-blue transition">
+          {/* Right Content */}
+          <div className="bg-gray-50 p-10 flex flex-col justify-center">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
               {featured.title}
             </h3>
             <p className="text-gray-600 mb-4 leading-relaxed">
-              {featured.excerpt}
+              {featured.description}
             </p>
             <p className="text-sm text-gray-500 mb-6">
               📅 {featured.createdAt}
             </p>
             <a
               href="#"
-              className="inline-block bg-custom-blue hover:bg-custom-green text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
+              className="self-start bg-custom-blue hover:bg-custom-green text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
             >
               Read Full Article →
             </a>
           </div>
         </div>
 
-        {/* Other Blogs Masonry Grid */}
+        {/* Other Blogs Grid (uses BlogCard now) */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {others.map((blog, idx) => (
-            <div
-              key={blog.id}
-              className="rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition transform hover:-translate-y-2"
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              <div className="relative h-56">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-                <span className="absolute top-4 left-4 bg-custom-green text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
-                  {blog.category}
-                </span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 hover:text-custom-blue transition line-clamp-2">
-                  {blog.title}
-                </h3>
-                <p className="mt-3 text-gray-600 text-sm line-clamp-3">
-                  {blog.excerpt}
-                </p>
-                <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
-                  <span>📅 {blog.createdAt}</span>
-                  <a
-                    href="#"
-                    className="font-semibold text-custom-blue hover:text-custom-green transition"
-                  >
-                    Read →
-                  </a>
-                </div>
-              </div>
-            </div>
+          {others.map((blog) => (
+            <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
 
+        {/* View All Button */}
         <div className="text-center mt-16">
-          <a
-            href="/blog"
+          <Button
+            text="View All Insights"
+            href="/blogs"
             className="inline-block bg-custom-blue text-white px-10 py-3 rounded-full text-lg font-bold hover:bg-custom-green transition shadow-lg"
-          >
-            View All Insights
-          </a>
+          />
         </div>
       </div>
     </section>
