@@ -38,11 +38,10 @@ const Footer = () => {
             </div>
 
             <p className="text-custom-blue text-lg leading-relaxed max-w-md">
-              We are a compliance-focused consulting firm, dedicated to helping
-              businesses grow by providing expert financial and legal solutions.
-              With a proven track record of success, we've partnered with
-              diverse organizations to ensure seamless compliance and drive
-              sustainable growth.
+              We are a compliance-focused consulting firm helping businesses
+              grow with expert financial and legal solutions. With a proven
+              track record, we ensure seamless compliance and sustainable
+              growth.
             </p>
           </div>
 
