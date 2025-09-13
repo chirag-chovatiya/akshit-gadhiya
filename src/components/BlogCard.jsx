@@ -1,5 +1,5 @@
 import React from "react";
-
+import parse from "html-react-parser";
 const BlogCard = ({ blog }) => {
   return (
     <div
@@ -23,9 +23,10 @@ const BlogCard = ({ blog }) => {
         <h3 className="text-lg font-bold text-gray-900 hover:text-custom-blue transition line-clamp-2">
           {blog.title}
         </h3>
-        <p className="mt-3 text-gray-600 text-sm line-clamp-3 flex-1">
-          {blog.description}
-        </p>
+        <div className="mt-3 text-gray-600 text-sm flex-1">
+          {parse(blog.description.split("</p>")[0] + "</p>")}
+        </div>
+
         <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
           <span>📅 {blog.createdAt}</span>
           <a
