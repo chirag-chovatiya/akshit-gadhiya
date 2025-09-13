@@ -1,8 +1,10 @@
 import React from "react";
 import parse from "html-react-parser";
+import { Link } from "react-router-dom";
 const BlogCard = ({ blog }) => {
   return (
-    <div
+    <Link
+      to={`/blog/${blog.id}`}
       key={blog.id}
       className="flex flex-col h-full rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition transform hover:-translate-y-2"
     >
@@ -29,15 +31,12 @@ const BlogCard = ({ blog }) => {
 
         <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
           <span>📅 {blog.createdAt}</span>
-          <a
-            href="#"
-            className="font-semibold text-custom-blue hover:text-custom-green transition"
-          >
+          <span className="font-semibold text-custom-blue hover:text-custom-green transition">
             Read →
-          </a>
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

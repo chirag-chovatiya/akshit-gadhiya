@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import Home from "../pages/index.jsx";
 import ContactPage from "../pages/Contact/ContactSection.jsx";
 import BlogPage from "../pages/Blog/BlogPage.jsx";
+import BlogDetailsSection from "../components/blogs/BlogDetailsSection.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
           {
             path: "/blogs",
             element: <BlogPage />,
+          },
+          {
+            path: "/blog/:id",
+            element: <BlogDetailsSection />,
           },
         ],
       },

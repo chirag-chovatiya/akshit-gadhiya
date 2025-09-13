@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import BlogCard from "../BlogCard";
-import BlogCategory from "./BlogCategory";
+import React from "react";
+import { useParams } from "react-router-dom";
 import CallToActionSection from "../../pages/CallToActionSection";
+import BlogCard from "../BlogCard";
+import Breadcrumb from "../breadcrumb/BreadCrumb";
 
 const dummyBlogs = [
   {
@@ -86,34 +87,75 @@ const dummyBlogs = [
   },
 ];
 
-const AllBlogSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const categories = ["All", ...new Set(dummyBlogs.map((b) => b.category))];
+const BlogDetailsSection = () => {
+  const { id } = useParams();
+  const blog = dummyBlogs.find((b) => b.id === parseInt(id));
 
-  const filteredBlogs =
-    selectedCategory === "All"
-      ? dummyBlogs
-      : dummyBlogs.filter((b) => b.category === selectedCategory);
+  if (!blog) {
+    return (
+      <section className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-gray-800">
+            Blog Not Found
+          </h2>
+        </div>
+        <CallToActionSection />
+      </section>
+    );
+  }
 
   return (
-    <section className=" bg-gray-50">
-      <div className="container mx-auto px-4 py-12">
-        <BlogCategory
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredBlogs.map((blog) => (
-            <div key={blog.id}>
-              <BlogCard blog={blog} />
+    <>
+      <Breadcrumb
+        title="Our Latest Blogs"
+        path={[
+          { label: "Blog", href: "/blogs" },
+          { label: "Blog Details" }, // no href for current page
+        ]}
+      />
+      <section className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full h-80 object-cover"
+            />
+            <div className="p-8">
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                {blog.title}
+              </h1>
+              <div className="flex items-center text-gray-600 text-sm mb-6">
+                <span className="mr-4 font-semibold text-custom-blue">
+                  Category: {blog.category}
+                </span>
+                <span>📅 {blog.createdAt}</span>
+              </div>
+              <div
+                className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: blog.description }}
+              ></div>
             </div>
-          ))}
+          </div>
+
+          {/* Related Blogs Section */}
+          <div className="mt-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+              Related Blogs
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {dummyBlogs
+                .filter((b) => b.category === blog.category && b.id !== blog.id)
+                .slice(0, 3) // Display up to 3 related blogs
+                .map((relatedBlog) => (
+                  <BlogCard key={relatedBlog.id} blog={relatedBlog} />
+                ))}
+            </div>
+          </div>
         </div>
-      </div>
-      <CallToActionSection />
-    </section>
+      </section>
+    </>
   );
 };
 
-export default AllBlogSection;
+export default BlogDetailsSection;
