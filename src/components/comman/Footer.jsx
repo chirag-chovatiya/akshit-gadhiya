@@ -24,7 +24,7 @@ const CONTACT_INFO = [
 
 const Footer = () => {
   return (
-    <footer className="bg-white bottom-0 w-full">
+    <footer className="bg-white bottom-0 w-full mt-5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b pb-8 mb-4">
           {/* Company Info */}

@@ -34,7 +34,7 @@ const Navbar = () => {
         key={item.label}
         to={item.href} // Use to for Link
         className={`text-custom-blue px-3 py-2 rounded-md text-base font-bold ${
-          isMobile ? "py-0" : "hover:text-red-600"
+          isMobile ? "py-0" : "hover:text-custom-green"
         }`}
       >
         {item.label}
@@ -45,13 +45,13 @@ const Navbar = () => {
     <>
       <Link
         to="/contact" // Link to the Contact Us page
-        className="bg-blue-200 text-custom-blue hover:bg-blue-300 px-4 py-2 rounded-full text-base font-bold"
+        className="bg-custom-blue text-white hover:bg-custom-green px-4 py-2 rounded-full text-base font-bold"
       >
         Contact Us
       </Link>
       <Link
         to="/login" // Link to the login page
-        className="bg-blue-200 text-custom-blue hover:bg-blue-300 px-4 py-2 rounded-full text-base font-bold"
+        className="bg-custom-blue text-white hover:bg-custom-green px-4 py-2 rounded-full text-base font-bold"
       >
         Login
       </Link>

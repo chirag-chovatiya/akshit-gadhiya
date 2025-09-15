@@ -1,86 +1,103 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Mail, Lock } from "lucide-react"; // icons
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('test@example.com'); // Dummy data
-  const [password, setPassword] = useState('password123'); // Dummy data
+  const [email, setEmail] = useState("test@example.com");
+  const [password, setPassword] = useState("password123");
   const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt with:', { email, password, rememberMe });
-    // For now, just navigate to dashboard on any login attempt
-    navigate('/dashboard');
+    console.log("Login attempt with:", { email, password, rememberMe });
+    navigate("/dashboard");
   };
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto my-10">
-      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-            Enter email address
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="test@example.com"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-            Enter Password
-          </label>
-          <input
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-custom-blue/10 to-custom-green/10 px-4">
+      <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl w-full max-w-md p-8">
+        {/* Title */}
+        <h2 className="text-3xl font-extrabold text-center text-custom-blue">
+          Welcome Back
+        </h2>
+        <p className="mt-2 text-center text-gray-600 text-sm">
+          Please login to continue
+        </p>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+          {/* Email */}
+          <div className="relative">
+            <Mail className="absolute left-3 top-3.5 text-gray-400 w-5 h-5" />
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="w-full pl-10 pr-4 py-3 border-gray-300 focus:ring-2 focus:ring-custom-blue focus:outline-none text-gray-800 shadow appearance-none border rounded-full"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div className="relative">
+            <Lock className="absolute left-3 top-3.5 text-gray-400 w-5 h-5" />
+            <input
             type="password"
             id="password"
-            className="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full pl-10 pr-4 py-3 border-gray-300 focus:ring-2 focus:ring-custom-blue focus:outline-none text-gray-800 shadow appearance-none border rounded-full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="********"
             required
           />
-        </div>
-        <div className="flex items-center justify-between mb-6">
-          <label className="flex items-center text-gray-700 text-sm">
-            <input
-              type="checkbox"
-              className="mr-2 leading-tight"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-            <span className="text-sm">Remember me</span>
-          </label>
-          <Link to="/forgot-password" className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-800">
-            Forgot password?
-          </Link>
-        </div>
-        <div className="flex items-center justify-between mb-4">
+          </div>
+
+          {/* Remember me + Forgot */}
+          <div className="flex items-center justify-between text-sm">
+            <label className="flex items-center gap-2 text-gray-700">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="accent-custom-blue"
+              />
+              Remember me
+            </label>
+            <Link
+              to="/forgot-password"
+              className="text-custom-blue hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+
+          {/* Button */}
           <button
             type="submit"
-            className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-full focus:outline-none focus:shadow-outline w-full"
+            className="w-full bg-custom-blue hover:bg-custom-green transition-colors duration-300 text-white font-semibold py-3 rounded-xl shadow-md"
           >
             Login
           </button>
-        </div>
-        <div className="flex items-center my-4">
-          <div className="flex-grow border-t border-gray-300"></div>
-          <span className="flex-shrink mx-4 text-gray-500">OR</span>
-          <div className="flex-grow border-t border-gray-300"></div>
-        </div>
-        <p className="text-center text-gray-700 text-sm">
-          Not a member yet?{' '}
-          <Link to="/signup" className="text-blue-500 hover:text-blue-800 font-bold">
-            Sign up here
-          </Link>
-        </p>
-      </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-6">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="px-4 text-gray-500 text-sm">OR</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+
+          {/* Signup */}
+          <p className="text-center text-gray-600 text-sm">
+            Not a member yet?{" "}
+            <Link to="/signup" className="text-custom-blue font-bold hover:underline">
+              Sign up here
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
