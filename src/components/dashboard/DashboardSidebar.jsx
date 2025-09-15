@@ -62,7 +62,7 @@ const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar }) => {
       )}
 
       <div
-        className={`fixed inset-y-0 left-0 bg-gray-800 text-white flex flex-col p-4 h-screen transition-all duration-300 z-40
+        className={`fixed min-h-screen inset-y-0 left-0 bg-gray-800 text-white flex flex-col p-4 h-screen transition-all duration-300 z-40
         ${isMobileSidebarOpen && isMobile ? 'translate-x-0' : '-translate-x-full'}
         lg:relative lg:translate-x-0 ${collapsed ? 'lg:w-20' : 'lg:w-64'}`}
       >

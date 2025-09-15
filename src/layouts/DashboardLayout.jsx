@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import DashboardNavbar from '../components/dashboard/DashboardNavbar';
 import DashboardSidebar from '../components/dashboard/DashboardSidebar';
-import DashboardPage from '../pages/DashboardPage'; // This will be the default content
 
 const DashboardLayout = () => {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
@@ -11,14 +11,7 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Mobile Sidebar */}
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden ${
-          isMobileSidebarOpen ? 'block' : 'hidden'
-        }`}
-        onClick={toggleMobileSidebar}
-      ></div>
+    <div className="flex min-h-screen bg-gray-100">
       <DashboardSidebar
         isMobileSidebarOpen={isMobileSidebarOpen}
         onCloseMobileSidebar={toggleMobileSidebar}
@@ -26,7 +19,7 @@ const DashboardLayout = () => {
       <div className="flex flex-col flex-1">
         <DashboardNavbar onMenuClick={toggleMobileSidebar} />
         <main className="flex-1 overflow-y-auto">
-          <DashboardPage />
+          <Outlet /> {/* Use Outlet for nested routes */}
         </main>
       </div>
     </div>

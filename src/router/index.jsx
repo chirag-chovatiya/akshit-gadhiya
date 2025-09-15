@@ -9,6 +9,8 @@ import BlogPage from "../pages/Blog/BlogPage.jsx";
 import BlogDetailsSection from "../components/blogs/BlogDetailsSection.jsx";
 import LoginForm from "../components/auth/LoginForm.jsx"; // Import LoginForm
 import SignupForm from "../components/auth/SignupForm.jsx"; // Import SignupForm
+import DashboardLayout from "../layouts/DashboardLayout.jsx";
+import DashboardPage from "../pages/DashboardPage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,16 @@ export const router = createBrowserRouter([
           {
             path: "/signup",
             element: <SignupForm />,
+          },
+        ],
+      },
+      {
+        path: "/dashboard", // New route for dashboard
+        element: <DashboardLayout />,
+        children: [
+          {
+            index: true, // Render DashboardPage at the parent path
+            element: <DashboardPage />,
           },
         ],
       },
