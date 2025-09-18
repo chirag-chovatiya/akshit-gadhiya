@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 
-const DashboardNavbar = ({ onMenuClick, sidebarCollapsed  }) => {
+const DashboardNavbar = ({ onMenuClick }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -37,7 +37,7 @@ const DashboardNavbar = ({ onMenuClick, sidebarCollapsed  }) => {
   };
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <nav className="bg-gray-800 text-white p-4 flex justify-between items-center w-full fixed top-0 left-0 z-30">
       {/* Left: Menu button */}
       <div className="flex items-center gap-4">
         <button onClick={onMenuClick} className="lg:hidden focus:outline-none">
@@ -46,11 +46,7 @@ const DashboardNavbar = ({ onMenuClick, sidebarCollapsed  }) => {
       </div>
 
       {/* Right: profile */}
-      <div
-        className={`relative transition-all duration-300 ${
-          sidebarCollapsed ? 'ml-20' : 'ml-64' // adjust according to sidebar width
-        }`}
-      >
+      <div className="relative" ref={dropdownRef}>
         <button onClick={toggleDropdown} className="focus:outline-none">
           {user.image ? (
             <img

@@ -15,9 +15,8 @@ const SidebarItem = ({ to, icon: Icon, label, active, collapsed, onClick }) => (
   </Link>
 );
 
-const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar }) => {
+const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar, collapsed, setCollapsed }) => {
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   // Detect mobile vs desktop dynamically
@@ -42,7 +41,7 @@ const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar }) => {
       {/* Mobile overlay */}
       {isMobile && isMobileSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-30"
+          className="fixed inset-0 bg-opacity-40 z-30"
           onClick={onCloseMobileSidebar}
         />
       )}
@@ -61,7 +60,7 @@ const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar }) => {
           {!collapsed && <span className="text-2xl font-bold">Menu</span>}
 
           {/* Collapse button for desktop */}
-          {!isMobile && (
+          {!isMobile && setCollapsed && ( // Only show collapse button if setCollapsed is provided (i.e., not mobile)
             <button
               onClick={() => setCollapsed(!collapsed)}
               className="p-1 bg-gray-700 rounded hover:bg-gray-600 transition-colors"

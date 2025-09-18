@@ -4,7 +4,8 @@ import DashboardNavbar from "../components/dashboard/DashboardNavbar";
 import DashboardSidebar from "../components/dashboard/DashboardSidebar";
 
 const DashboardLayout = () => {
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false); // 👈 new state
 
   const toggleMobileSidebar = () => {
     setIsMobileSidebarOpen(!isMobileSidebarOpen);
@@ -13,9 +14,12 @@ const DashboardLayout = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <div className="hidden md:flex md:w-64">
+      <div className="hidden md:flex md:w-auto">
         {/* Desktop Sidebar */}
-        <DashboardSidebar />
+        <DashboardSidebar
+          collapsed={collapsed}
+          setCollapsed={setCollapsed} // 👈 pass control to sidebar
+        />
       </div>
 
       {/* Mobile Sidebar Overlay */}
@@ -40,11 +44,11 @@ const DashboardLayout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col flex-1 w-0">
+      <div className={`flex flex-col flex-1 transition-all duration-300 ${collapsed ? 'lg:ml-20' : 'lg:ml-64'}`}>
         {/* Navbar with hamburger menu */}
-        <DashboardNavbar onMenuClick={toggleMobileSidebar} />
+        <DashboardNavbar onMenuClick={toggleMobileSidebar} collapsed={collapsed} />
 
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="flex-1 overflow-y-auto p-4 pt-16"> {/* Added pt-16 to account for fixed navbar */}
           <Outlet />
         </main>
       </div>
