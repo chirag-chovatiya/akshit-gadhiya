@@ -37,7 +37,7 @@ const DashboardNavbar = ({ onMenuClick }) => {
   };
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between items-center w-full fixed top-0 left-0 z-30">
+    <nav className="bg-custom-blue text-white p-3 flex justify-between items-center w-full fixed top-0 left-0 z-30">
       {/* Left: Menu button */}
       <div className="flex items-center gap-4">
         <button onClick={onMenuClick} className="lg:hidden focus:outline-none">
