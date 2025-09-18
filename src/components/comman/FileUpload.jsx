@@ -2,11 +2,10 @@
 
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { Loader2, UploadCloud, X } from "lucide-react";
+import { Loader2, UploadCloud } from "lucide-react";
 
 export function ImageAndFileUploader({ onFileUpload, multiple = false }) {
   const [isUploading, setIsUploading] = useState(false);
-  const [files, setFiles] = useState([]);
 
   const onDrop = useCallback(
     (acceptedFiles) => {
@@ -14,28 +13,15 @@ export function ImageAndFileUploader({ onFileUpload, multiple = false }) {
       setIsUploading(true);
 
       if (multiple) {
-        setFiles((prev) => [...prev, ...acceptedFiles]);
-        onFileUpload([...files, ...acceptedFiles]);
+        onFileUpload(acceptedFiles);
       } else {
-        setFiles([acceptedFiles[0]]);
         onFileUpload(acceptedFiles[0]);
       }
 
       setIsUploading(false);
     },
-    [onFileUpload, multiple, files]
+    [onFileUpload, multiple]
   );
-
-  const removeFile = (index) => {
-    const updatedFiles = [...files];
-    updatedFiles.splice(index, 1);
-    setFiles(updatedFiles);
-    if (multiple) {
-      onFileUpload(updatedFiles);
-    } else {
-      onFileUpload(null);
-    }
-  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -51,47 +37,34 @@ export function ImageAndFileUploader({ onFileUpload, multiple = false }) {
   return (
     <div
       {...getRootProps()}
-      className="flex flex-col items-center justify-center w-full h-auto min-h-[160px] border-2 border-dashed rounded-md cursor-pointer bg-muted/20 hover:bg-muted/30 transition-colors p-4"
+      className={`w-full min-h-[180px] flex flex-col justify-center items-center rounded-xl border-2 border-dashed p-6 cursor-pointer transition-all
+        ${isDragActive ? "bg-yellow-100 border-yellow-400" : "bg-white/10 border-gray-300 hover:bg-white/20"}`}
     >
       <input {...getInputProps()} />
       {isUploading ? (
-        <div className="flex items-center space-x-2">
-          <Loader2 className="h-5 w-5 animate-spin text-primary" />
-          <span>Uploading...</span>
+        <div className="flex items-center space-x-2 text-yellow-600">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span className="font-medium">Uploading...</span>
         </div>
-      ) : files.length > 0 ? (
-        <div className="w-full flex flex-col space-y-1">
-          {files.map((file, idx) => (
-            <div
-              key={idx}
-              className="flex justify-between items-center bg-white/50 px-2 py-1 rounded-md border"
-            >
-              <span className="truncate">{file.name}</span>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  removeFile(idx);
-                }}
-              >
-                <X className="h-4 w-4 text-red-500" />
-              </button>
-            </div>
-          ))}
-        </div>
-      ) : isDragActive ? (
-        <p className="text-muted-foreground">
-          Drop the {multiple ? "files" : "file"} here ...
-        </p>
       ) : (
-        <div className="flex flex-col items-center space-y-2">
-          <UploadCloud className="h-8 w-8 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground">
-            Drag & drop {multiple ? "files" : "file"} here, or click to select
-          </p>
-          <button type="button" className="px-3 py-2 border rounded-md">
-            Browse {multiple ? "Files" : "File"}
-          </button>
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="bg-yellow-50 p-4 rounded-full">
+            <UploadCloud className="h-10 w-10 text-custom-green" />
+          </div>
+          {isDragActive ? (
+            <p className="text-gray-700 font-semibold">
+              Drop the {multiple ? "files" : "file"} here!
+            </p>
+          ) : (
+            <>
+              <p className="text-gray-500">
+                Drag & drop {multiple ? "files" : "a file"} or click to upload
+              </p>
+              <button className="mt-2 px-4 py-2 bg-custom-green text-white font-semibold rounded-lg shadow hover:bg-yellow-600 transition">
+                Browse {multiple ? "Files" : "File"}
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>

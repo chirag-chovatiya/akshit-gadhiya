@@ -31,9 +31,9 @@ const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar, collapsed
 
   const menuItems = [
     { to: '/dashboard', label: 'Compliance Management', icon: Home },
-    { to: '/dashboard/compliance', label: 'Compliance Management', icon: FileText },
-    { to: '/dashboard/settings', label: 'Financial Solutions', icon: Settings },
-    { to: '/dashboard/reports', label: 'CSR Advisory', icon: BarChart2 },
+    // { to: '/dashboard/compliance', label: 'Compliance Management', icon: FileText },
+    // { to: '/dashboard/settings', label: 'Financial Solutions', icon: Settings },
+    // { to: '/dashboard/reports', label: 'CSR Advisory', icon: BarChart2 },
   ];
 
   return (
