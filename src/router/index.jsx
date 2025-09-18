@@ -8,9 +8,9 @@ import ContactPage from "../pages/Contact/ContactSection.jsx";
 import BlogPage from "../pages/Blog/BlogPage.jsx";
 import BlogDetailsSection from "../components/blogs/BlogDetailsSection.jsx";
 import LoginForm from "../components/auth/LoginForm.jsx"; // Import LoginForm
-import SignupForm from "../components/auth/SignupForm.jsx"; // Import SignupForm
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import DashboardPage from "../pages/DashboardPage.jsx";
+import SignupForm from "../components/auth/SignupForm.jsx";
 
 export const router = createBrowserRouter([
   {
