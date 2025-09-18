@@ -37,16 +37,16 @@ const DashboardNavbar = ({ onMenuClick }) => {
   };
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
-      {/* Left side: menu button only */}
+    <nav className="bg-custom-blue text-white p-3 flex justify-between items-center w-full fixed top-0 left-0 z-30">
+      {/* Left: Menu button */}
       <div className="flex items-center gap-4">
         <button onClick={onMenuClick} className="lg:hidden focus:outline-none">
           <Menu className="w-6 h-6" />
         </button>
       </div>
 
-      {/* Right side: profile */}
-      <div className="relative right-5 md:right-0 " ref={dropdownRef}>
+      {/* Right: profile */}
+      <div className="relative" ref={dropdownRef}>
         <button onClick={toggleDropdown} className="focus:outline-none">
           {user.image ? (
             <img

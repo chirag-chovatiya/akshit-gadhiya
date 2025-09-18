@@ -15,82 +15,73 @@ const SidebarItem = ({ to, icon: Icon, label, active, collapsed, onClick }) => (
   </Link>
 );
 
-const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar }) => {
+const DashboardSidebar = ({ isMobileSidebarOpen, onCloseMobileSidebar, collapsed, setCollapsed }) => {
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024); // lg breakpoint
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Detect window resize
+  // Detect mobile vs desktop dynamically
   useEffect(() => {
-  const handleResize = () => {
-    const mobile = window.innerWidth < 1024;
-
-    if (mobile && !isMobile) {
-      setCollapsed(false); 
-      onCloseMobileSidebar(); 
-    }
-
-    if (!mobile && isMobile) {
-      setCollapsed(false); 
-    }
-
-    setIsMobile(mobile);
-  };
-
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
-}, [isMobile, onCloseMobileSidebar]);
-
-
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    handleResize(); // call initially
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const menuItems = [
-    { to: '/dashboard', label: 'Dashboard Home', icon: Home },
-    { to: '/dashboard/compliance', label: 'Compliance Management', icon: FileText },
-    { to: '/dashboard/settings', label: 'Financial Solutions', icon: Settings },
-    { to: '/dashboard/reports', label: 'CSR Advisory', icon: BarChart2 },
-    { to: '/dashboard/reports', label: 'Legal Support', icon: BarChart2 },
+    { to: '/dashboard', label: 'Compliance Management', icon: Home },
+    // { to: '/dashboard/compliance', label: 'Compliance Management', icon: FileText },
+    // { to: '/dashboard/settings', label: 'Financial Solutions', icon: Settings },
+    // { to: '/dashboard/reports', label: 'CSR Advisory', icon: BarChart2 },
   ];
 
   return (
     <>
-      {/* Overlay for mobile */}
-      {isMobileSidebarOpen && isMobile && (
+      {/* Mobile overlay */}
+      {isMobile && isMobileSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+          className="fixed inset-0 bg-opacity-40 z-30"
           onClick={onCloseMobileSidebar}
         />
       )}
 
+      {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 bg-gray-800 text-white flex flex-col p-4 h-screen transition-all duration-300 z-40
-        ${isMobileSidebarOpen && isMobile ? 'translate-x-0' : '-translate-x-full'}
-        lg:relative lg:translate-x-0 ${collapsed ? 'lg:w-20' : 'lg:w-64'}`}
+        className={`
+          fixed inset-y-0 left-0 bg-custom-blue text-white flex flex-col p-4 z-40
+          transform transition-transform duration-300 ease-in-out
+          ${isMobile ? (isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full') : 'translate-x-0'}
+          ${collapsed && !isMobile ? 'lg:w-20' : 'lg:w-64'}
+        `}
       >
+        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           {!collapsed && <span className="text-2xl font-bold">Menu</span>}
 
-          {/* Collapse button (Desktop) */}
-          {!isMobile && (
+          {/* Collapse button for desktop */}
+          {!isMobile && setCollapsed && ( // Only show collapse button if setCollapsed is provided (i.e., not mobile)
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="p-1 bg-gray-700 rounded hover:bg-gray-600 transition-colors hidden lg:block"
+              className="p-1 bg-gray-700 rounded hover:bg-gray-600 transition-colors"
             >
               {collapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
             </button>
           )}
 
-          {/* Close button (Mobile) */}
+          {/* Close button for mobile */}
           {isMobile && (
             <button
               onClick={onCloseMobileSidebar}
-              className="p-1 bg-gray-700 rounded hover:bg-gray-600 transition-colors lg:hidden"
+              className="p-1 bg-gray-700 rounded hover:bg-gray-600 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           )}
         </div>
 
-        <nav className="flex flex-col gap-2">
+        {/* Menu Items */}
+        <nav className="flex flex-col gap-2 flex-1 overflow-y-auto">
           {menuItems.map((item) => (
             <SidebarItem
               key={item.to}
