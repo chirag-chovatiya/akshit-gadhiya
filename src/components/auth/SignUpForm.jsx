@@ -22,8 +22,9 @@ const SignupForm = () => {
     });
   };
 
+
   return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-custom-blue/10 to-custom-green/10 px-4">
+      <div className="min-h-screen  flex items-center justify-center bg-gradient-to-br from-custom-blue/10 to-custom-green/20 px-4">
         <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-xl w-full max-w-md p-8">
           {/* Title */}
           <h2 className="text-3xl font-extrabold text-center text-custom-blue">
