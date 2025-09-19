@@ -10,7 +10,7 @@ import BlogDetailsSection from "../components/blogs/BlogDetailsSection.jsx";
 import LoginForm from "../components/auth/LoginForm.jsx"; 
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import DashboardPage from "../pages/DashboardPage.jsx";
-import SignupForm from "../components/auth/SignupForm.jsx";
+import SignupForm from "../components/auth/SignUpForm.jsx";
 
 export const router = createBrowserRouter([
   {
