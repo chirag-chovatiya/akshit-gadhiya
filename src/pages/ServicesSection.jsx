@@ -1,5 +1,12 @@
 import React from "react";
-import { ShieldCheck, DollarSign, HeartHandshake, Scale } from "lucide-react";
+import {
+  ShieldCheck,
+  DollarSign,
+  HeartHandshake,
+  Scale,
+  MessageSquare,
+  Mail,
+} from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -84,14 +91,25 @@ const ServicesSection = () => {
                     </p>
 
                     {/* Button */}
-                    <a
-                      href="/contact"
-                      className="mt-6 inline-block bg-gray-900 text-white px-5 py-2 rounded-lg 
-                    transition-colors duration-300 text-center 
-                    hover:bg-[#49A947]"
-                    >
-                      Contact Us
-                    </a>
+                    <div className="mt-6 flex space-x-4">
+                      <a
+                        href="mailto:contact@careandcomply.com" 
+                        target="_blank"
+                        className="flex items-center justify-center bg-custom-blue text-white px-4 py-2 rounded-lg 
+                      transition-colors duration-300 hover:bg-custom-green"
+                      >
+                        <Mail size={20} />
+                      </a>
+                      <a
+                        href="https://wa.me/918200528355" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center bg-custom-green text-white px-4 py-2 rounded-lg 
+                      transition-colors duration-300 hover:bg-custom-blue"
+                      >
+                        <MessageSquare size={20} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

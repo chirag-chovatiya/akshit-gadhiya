@@ -12,6 +12,7 @@ import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import DashboardPage from "../pages/DashboardPage.jsx";
 import SignupForm from "../components/auth/SignUpForm.jsx";
 import AboutUsPage from "../pages/AboutUsPage.jsx";
+import PrivacyPolicyPage from "../pages/PrivacyPolicyPage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
           {
             path: "/blog/:id",
             element: <BlogDetailsSection />,
+          },
+          {
+            path: "/privacy-policy",
+            element: <PrivacyPolicyPage />,
           },
         ],
       },

@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "../components/BlogCard";
 import Button from "../components/button";
+import { Link } from "react-router-dom";
 
 const dummyBlogs = [
   {
@@ -82,12 +83,12 @@ const BlogSection = () => {
             <p className="text-sm text-gray-500 mb-6">
               📅 {featured.createdAt}
             </p>
-            <a
-              href="#"
+            <Link
+              to={`/blog/${featured.id}`}
               className="self-start bg-custom-blue hover:bg-custom-green text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
             >
               Read Full Article →
-            </a>
+            </Link>
           </div>
         </div>
 

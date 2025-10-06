@@ -4,7 +4,6 @@ const ContactSection = () => {
   return (
     <section className="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-10 px-4">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        
         {/* Left: Form */}
         <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-all">
           <h3 className="text-3xl font-extrabold text-custom-blue mb-8">
@@ -45,17 +44,72 @@ const ContactSection = () => {
         <div className="space-y-8">
           <div className="grid gap-6">
             {[
-              { icon: <Phone className="w-5 h-5 text-white" />, title: "Phone", info: "+91 8200528355", bg: "bg-custom-blue" },
-              { icon: <Mail className="w-5 h-5 text-white" />, title: "Email", info: "careandcomply@gmail.com", bg: "bg-custom-blue" },
-              { icon: <MapPin className="w-5 h-5 text-white" />, title: "Office", info: "Akash Homes, Nr. Ujala Circle, S. G. Highway, Ahmedabad - 382210", bg: "bg-custom-blue" },
+              {
+                icon: <Phone className="w-5 h-5 text-white" />,
+                title: "Phone",
+                info: "+91 8200528355 | +91 9876543210",
+                href1: "https://wa.me/918200528355",
+                href2: "https://wa.me/919876543210",
+                bg: "bg-custom-blue",
+              },
+              {
+                icon: <Mail className="w-5 h-5 text-white" />,
+                title: "Email",
+                info: "contact@careandcomply.com",
+                href: "mailto:contact@careandcomply.com",
+                bg: "bg-custom-blue",
+              },
+              {
+                icon: <MapPin className="w-5 h-5 text-white" />,
+                title: "Office",
+                info: "Akash Homes, Nr. Ujala Circle, S. G. Highway, Ahmedabad - 382210",
+                bg: "bg-custom-blue",
+              },
             ].map((item, idx) => (
               <div key={idx} className="flex gap-4 items-start">
-                <div className={`p-3 rounded-xl ${item.bg} flex items-center justify-center`}>
+                <div
+                  className={`p-3 rounded-xl ${item.bg} flex items-center justify-center`}
+                >
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg text-custom-blue">{item.title}</h4>
-                  <p className="text-gray-700">{item.info}</p>
+                  <h4 className="font-semibold text-lg text-custom-blue">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-700">
+                    {item.href1 && item.href2 ? (
+                      <>
+                        <a
+                          href={item.href1}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-custom-blue hover:text-custom-green"
+                        >
+                          +91 8200528355
+                        </a>{" "}
+                        &nbsp;&nbsp; {/* extra space between numbers */}
+                        <a
+                          href={item.href2}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-custom-blue hover:text-custom-green"
+                        >
+                          +91 9876543210
+                        </a>
+                      </>
+                    ) : item.href ? (
+                      <a
+                        href="mailto:careandcomply@gmail.com"
+                        target="_blank" // add this
+                        rel="noopener noreferrer"
+                        className="text-custom-blue hover:text-custom-green"
+                      >
+                        {item.info}
+                      </a>
+                    ) : (
+                      item.info
+                    )}
+                  </p>
                 </div>
               </div>
             ))}

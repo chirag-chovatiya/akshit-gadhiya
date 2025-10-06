@@ -2,23 +2,27 @@ import React from "react";
 import { Phone, Mail } from "lucide-react";
 
 const SPECIAL_LINKS = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "about-us" },
+  { label: "Contact", href: "contact" },
+  { label: "Privacy Policy", href: "privacy-policy" },
 ];
 
 const CONTACT_INFO = [
   {
     icon: <Phone className="h-5 w-5 text-custom-blue mr-2" />,
     text: "+91 8200528355",
+    href: "https://wa.me/918200528355",
   },
   {
     icon: <Phone className="h-5 w-5 text-custom-blue mr-2" />,
     text: "+91 9773243414",
+    href: "https://wa.me/919773243414",
   },
   {
     icon: <Mail className="h-5 w-5 text-custom-blue mr-2" />,
-    text: "careandcomply@gmail.com",
+    text: "contact@careandcomply.com",
+    href: "mailto:contact@careandcomply.com",
   },
 ];
 
@@ -69,14 +73,21 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-custom-blue mb-4">
               Contact Us
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {CONTACT_INFO.map((contact, index) => (
                 <li
                   key={index}
-                  className="flex items-center justify-center md:justify-start text-custom-blue text-lg "
+                  className="flex items-center justify-center md:justify-start hover:text-custom-green transition-colors text-lg"
                 >
                   {contact.icon}
-                  {contact.text}
+                  <a
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {contact.text}
+                  </a>
                 </li>
               ))}
             </ul>
