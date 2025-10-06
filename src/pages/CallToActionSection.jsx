@@ -21,9 +21,9 @@ const CallToActionSection = () => {
 
           {/* Button */}
           <div className="md:w-1/3 flex justify-center md:justify-end">
-            <button className="bg-gradient-to-r from-custom-blue to-custom-green text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition transform hover:scale-110">
+            <Button className="bg-gradient-to-r from-custom-blue to-custom-green text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition transform hover:scale-110">
               Connect With Us
-            </button>
+            </Button>
           </div>
         </div>
       </div>
