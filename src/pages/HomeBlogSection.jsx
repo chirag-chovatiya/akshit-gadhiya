@@ -67,7 +67,7 @@ const BlogSection = () => {
               alt={featured.title}
               className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <span className="absolute top-5 left-5 bg-custom-green text-white px-4 py-1 rounded-full text-xs font-semibold uppercase shadow">
+            <span className="absolute top-5 left-5 bg-custom-orange text-white px-4 py-1 rounded-full text-xs font-semibold uppercase shadow">
               {featured.category}
             </span>
           </div>
@@ -85,7 +85,7 @@ const BlogSection = () => {
             </p>
             <Link
               to={`/blog/${featured.id}`}
-              className="self-start bg-custom-blue hover:bg-custom-green text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
+              className="self-start bg-custom-blue hover:bg-custom-orange text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
             >
               Read Full Article →
             </Link>

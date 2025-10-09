@@ -93,21 +93,21 @@ const ServicesSection = () => {
                     {/* Button */}
                     <div className="mt-6 flex space-x-4">
                       <a
-                        href="mailto:contact@careandcomply.com" 
-                        target="_blank"
-                        className="flex items-center justify-center bg-custom-blue text-white px-4 py-2 rounded-lg 
-                      transition-colors duration-300 hover:bg-custom-green"
-                      >
-                        <Mail size={20} />
-                      </a>
-                      <a
-                        href="https://wa.me/918200528355" 
+                        href="mailto:contact@careandcomply.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center bg-custom-green text-white px-4 py-2 rounded-lg 
-                      transition-colors duration-300 hover:bg-custom-blue"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-custom-blue text-white hover:bg-custom-orange transition-all duration-300 shadow-md"
                       >
-                        <MessageSquare size={20} />
+                        <i className="fa-solid fa-envelope text-xl"></i>
+                      </a>
+
+                      <a
+                        href="https://wa.me/918200528355"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all duration-300 shadow-md"
+                      >
+                        <i className="fa-brands fa-whatsapp text-2xl"></i>
                       </a>
                     </div>
                   </div>

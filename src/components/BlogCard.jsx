@@ -15,7 +15,7 @@ const BlogCard = ({ blog }) => {
           alt={blog.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
-        <span className="absolute top-4 left-4 bg-custom-green text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
+        <span className="absolute top-4 left-4 bg-custom-orange text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
           {blog.category}
         </span>
       </div>
@@ -31,7 +31,7 @@ const BlogCard = ({ blog }) => {
 
         <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
           <span>📅 {blog.createdAt}</span>
-          <span className="font-semibold text-custom-blue hover:text-custom-green transition">
+          <span className="font-semibold text-custom-blue hover:text-custom-orange transition">
             Read →
           </span>
         </div>
