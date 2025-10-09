@@ -12,3 +12,24 @@
   /* background-color: #fffff5; */
 }
 
+@keyframes typing-multiline {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Works for multi-line text */
+.animate-typing-multiline {
+  display: inline-block;
+  animation: typing-multiline 2.5s steps(40, end) forwards, blink 0.7s step-end infinite;
+}
+

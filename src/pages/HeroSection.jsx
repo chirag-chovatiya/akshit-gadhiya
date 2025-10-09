@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,6 +29,8 @@ const HeroSection = () => {
     },
   ];
 
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -39,6 +41,7 @@ const HeroSection = () => {
     slidesToScroll: 1,
     arrows: false,
     fade: true,
+    beforeChange: (_, next) => setActiveSlide(next),
   };
 
   return (
@@ -67,7 +70,10 @@ const HeroSection = () => {
                 transition={{ duration: 0.8 }}
                 className="max-w-4xl text-center bg-white/40 backdrop-blur-md border border-white/50 shadow-xl rounded-3xl p-8 md:p-12"
               >
-                <h1 className="text-2xl md:text-4xl font-title font-extrabold text-custom-blue mb-6 relative inline-block leading-relaxed">
+                <h1
+                  key={activeSlide}
+                  className="text-2xl md:text-4xl font-title font-extrabold text-custom-blue mb-6 relative inline-block leading-relaxed overflow-hidden animate-typing-multiline"
+                >
                   {slide.title}
                   <span className="absolute left-0 bottom-[-10px] w-full h-1 bg-gradient-to-r from-custom-blue to-custom-orange rounded-full animate-pulse"></span>
                 </h1>
