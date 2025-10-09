@@ -3,6 +3,7 @@ import CallToActionSection from "./CallToActionSection";
 import HeroSection from "./HeroSection";
 import BlogSection from "./HomeBlogSection";
 import ServicesSection from "./ServicesSection";
+import PricingSection from "./PricingSection";
 import SectionWrapper from "../components/SectionWrapper"; // Import SectionWrapper
 import ReviewSection from "../components/reviews/ReviewSection";
 
@@ -34,6 +35,9 @@ export default function Home() {
       </SectionWrapper>
       <SectionWrapper variants={fadeInRight} delay={0.2}>
         <ServicesSection />
+      </SectionWrapper>
+      <SectionWrapper variants={fadeInUp} delay={0.25}>
+        <PricingSection />
       </SectionWrapper>
       <SectionWrapper variants={scaleUp} delay={0.3}>
         <BlogSection />
