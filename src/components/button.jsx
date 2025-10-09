@@ -1,60 +1,33 @@
 import React from "react";
-import { motion } from "framer-motion";
 
-const Button = ({
-  text = "Click Me",
-  onClick,
-  href,
-  bgColor = "bg-blue-400",
-  textColor = "text-white",
-  padding = "py-2 px-6",
-  rounded = "rounded-full",
-  font = "font-semibold",
-  hoverBgColor = "bg-blue-500",
-  className = "",
-}) => {
-  const baseClasses = `${bgColor} ${textColor} ${padding} ${rounded} ${font} transition duration-300 inline-block relative overflow-hidden`;
+const Button = ({ text, onClick, href, className = "" }) => {
+  const content = (
+    <>
+      <span className="relative z-10 block px-5 py-3 overflow-hidden leading-tight text-white font-bold transition-colors duration-300 ease-out rounded-lg group-hover:text-white">
+        <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-custom-blue"></span>
+        <span className="absolute left-0 w-60 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-custom-orange group-hover:-rotate-180 ease"></span>
+        <span className="relative">{text}</span>
+      </span>
+      <span
+        className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-custom-orange rounded-lg group-hover:mb-0 group-hover:mr-0"
+        data-rounded="rounded-lg"
+      ></span>
+    </>
+  );
 
-  const textVariants = {
-    initial: { y: 0 },
-    hover: { y: -4 },
-  };
+  const baseClasses = "relative inline-block text-base group " + className;
 
-  // If href prop is passed → render <a>
   if (href) {
     return (
-      <a
-        href={href}
-        className={`${baseClasses} ${className} group`}
-      >
-        <motion.span
-          variants={textVariants}
-          initial="initial"
-          whileHover="hover"
-          className="relative z-10"
-        >
-          {text}
-        </motion.span>
-        <span className={`absolute inset-0 ${hoverBgColor} opacity-0 group-hover:opacity-20 transition duration-300 rounded-full`}></span>
+      <a href={href} className={baseClasses}>
+        {content}
       </a>
     );
   }
 
-  // Otherwise render <button>
   return (
-    <button
-      onClick={onClick}
-      className={`${baseClasses} ${className} group`}
-    >
-      <motion.span
-        variants={textVariants}
-        initial="initial"
-        whileHover="hover"
-        className="relative z-10"
-      >
-        {text}
-      </motion.span>
-      <span className={`absolute inset-0 ${hoverBgColor} opacity-0 group-hover:opacity-20 transition duration-300 rounded-full`}></span>
+    <button onClick={onClick} className={baseClasses}>
+      {content}
     </button>
   );
 };

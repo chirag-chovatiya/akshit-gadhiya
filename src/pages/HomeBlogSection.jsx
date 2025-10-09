@@ -83,12 +83,11 @@ const BlogSection = () => {
             <p className="text-sm text-gray-500 mb-6">
               📅 {featured.createdAt}
             </p>
-            <Link
-              to={`/blog/${featured.id}`}
-              className="self-start bg-custom-blue hover:bg-custom-orange text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
-            >
-              Read Full Article →
-            </Link>
+            <Button
+              text="Read Full Article →"
+              href={`/blog/${featured.id}`}
+              className="w-48"
+            />
           </div>
         </div>
 
@@ -104,7 +103,7 @@ const BlogSection = () => {
           <Button
             text="View All Insights"
             href="/blogs"
-            className="inline-block bg-custom-blue text-white px-10 py-3 rounded-full text-lg font-bold hover:bg-custom-green transition shadow-lg"
+            
           />
         </div>
       </div>
