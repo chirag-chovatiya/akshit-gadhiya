@@ -55,7 +55,7 @@ const PricingSection = () => {
             >
               <div>
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-custom-orange text-black px-4 py-1 text-xs font-bold rounded-full uppercase tracking-wide">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-custom-orange text-white px-4 py-1 text-xs font-bold rounded-full uppercase tracking-wide">
                     Most Popular
                   </div>
                 )}
@@ -82,7 +82,7 @@ const PricingSection = () => {
                 to="/contact"
                 className="block text-center py-3 bg-custom-orange text-white font-semibold rounded-xl hover:scale-105 transition-transform shadow-md hover:shadow-yellow-400/60 mt-auto"
               >
-                {plan.popular ? "Upgrade Now" : "Select Plan"}
+                Contact Us
               </Link>
             </div>
           ))}
