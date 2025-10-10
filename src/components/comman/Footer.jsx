@@ -30,22 +30,25 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-white to-gray-100 shadow-lg w-full mt-10">
       <div className="container mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-start gap-8">
-        
         {/* Company Info */}
         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
           <img
-            className="h-20 w-auto mb-4"
+            className="h-16 w-auto mb-4" // decreased from h-20 to h-12
             src="/images/logo/NewLogo-1.png"
             alt="Care Comply Logo"
           />
           <p className="text-custom-blue text-base leading-relaxed max-w-xs">
-            Compliance-focused consulting firm helping businesses grow with expert financial and legal solutions. Ensuring seamless compliance and sustainable growth.
+            Compliance-focused consulting firm helping businesses grow with
+            expert financial and legal solutions. Ensuring seamless compliance
+            and sustainable growth.
           </p>
         </div>
 
         {/* Special Links */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-custom-blue mb-4">Special Links</h3>
+          <h3 className="text-xl font-bold text-custom-blue mb-4">
+            Special Links
+          </h3>
           <ul className="space-y-2 flex flex-col items-center md:items-start">
             {SPECIAL_LINKS.map((link) => (
               <li key={link.label}>
@@ -62,7 +65,9 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-custom-blue mb-4">Contact Us</h3>
+          <h3 className="text-xl font-bold text-custom-blue mb-4">
+            Contact Us
+          </h3>
           <ul className="space-y-3 flex flex-col items-center md:items-start">
             {CONTACT_INFO.map((contact, idx) => (
               <li key={idx} className="flex items-center gap-3">
