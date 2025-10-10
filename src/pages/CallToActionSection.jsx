@@ -28,7 +28,7 @@ const contactData = [
 
 const CallToActionSection = () => {
   return (
-    <section className="bg-custom-blue/90 py-16 text-white">
+    <section className="bg-custom-blue/80 py-16 text-white">
       <div className="container mx-auto px-6 text-center">
         <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-center">
           <h2 className="text-3xl font-semibold">

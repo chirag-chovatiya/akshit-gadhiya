@@ -46,7 +46,7 @@ const BlogSection = () => {
   const [featured, ...others] = dummyBlogs;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
