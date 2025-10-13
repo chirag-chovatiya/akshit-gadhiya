@@ -6,9 +6,9 @@ const contactData = [
   {
     type: "Phone",
     icon: <i className="fa-solid fa-phone-volume text-2xl text-custom-orange"></i>,
-    title: "+91 9571684256",
+    title: "+91 82005 28355",
     subtitle: "07:00 - 19:00 | Monday to Saturday",
-    link: "tel:+919571684256",
+    link: "tel:+918200528355",
   },
   {
     type: "Email",
@@ -22,7 +22,7 @@ const contactData = [
     icon: <i className="fa-brands fa-whatsapp text-custom-green text-2xl"></i>,
     title: "Whatsapp Us",
     subtitle: "07:00 - 19:00 | Monday to Saturday",
-    link: "https://wa.me/919571684256",
+    link: "https://wa.me/918200528355",
   },
 ];
 

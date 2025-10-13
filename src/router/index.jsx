@@ -13,7 +13,6 @@ import DashboardPage from "../pages/DashboardPage.jsx";
 import SignupForm from "../components/auth/SignUpForm.jsx";
 import AboutUsPage from "../pages/AboutUsPage.jsx";
 import PrivacyPolicyPage from "../pages/PrivacyPolicyPage.jsx";
-import TeamPage from "../pages/TeamPage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -47,10 +46,6 @@ export const router = createBrowserRouter([
           {
             path: "/privacy-policy",
             element: <PrivacyPolicyPage />,
-          },
-          {
-            path: "/our-team",
-            element: <TeamPage />,
           },
         ],
       },

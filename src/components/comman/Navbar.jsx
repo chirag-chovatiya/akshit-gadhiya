@@ -43,11 +43,13 @@ const Navbar = () => {
   ));
 
 
-  const renderButtons = () => (
-    <div className="flex gap-4">
+  const renderButtons = (isMobile = false) => (
+    <div className={`flex ${isMobile ? "flex-col gap-2 mt-4" : "flex-row gap-4"}`}>
       <Link
         to="/contact"
-        className="relative px-6 py-2 rounded-full font-semibold text-custom-blue border-2 border-custom-blue overflow-hidden group transition"
+        className={`relative px-6 py-2 rounded-full font-semibold text-custom-blue border-2 border-custom-blue overflow-hidden group transition ${
+          isMobile ? "w-full text-center" : ""
+        }`}
       >
         <span className="absolute inset-0 bg-custom-blue -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
         <span className="relative z-10 group-hover:text-white transition-colors duration-300">
@@ -57,7 +59,9 @@ const Navbar = () => {
 
       <Link
         to="/login"
-        className="relative px-6 py-2 rounded-full font-semibold text-custom-orange border-2 border-custom-orange overflow-hidden group"
+        className={`relative px-6 py-2 rounded-full font-semibold text-custom-orange border-2 border-custom-orange overflow-hidden group ${
+          isMobile ? "w-full text-center" : ""
+        }`}
       >
         <span className="absolute inset-0 bg-custom-orange -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
         <span className="relative z-10 group-hover:text-white transition-colors duration-300">
@@ -115,7 +119,7 @@ const Navbar = () => {
       >
         <div className="p-6 flex flex-col space-y-2">
           {renderLinks(true)}
-          {renderButtons()}
+          {renderButtons(true)}
         </div>
       </div>
 

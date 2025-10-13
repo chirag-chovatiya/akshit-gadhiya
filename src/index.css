@@ -34,3 +34,6 @@
 }
 
 
+.bg-chemix-orange {
+  background: linear-gradient(135deg, #F57C00 0%, #FFB347 100%);
+}

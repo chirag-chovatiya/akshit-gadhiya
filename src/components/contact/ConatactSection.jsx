@@ -34,7 +34,7 @@ const ContactSection = () => {
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-custom-blue text-white font-semibold py-3 rounded-xl hover:bg-custom-green transition"
+              className="w-full bg-custom-blue text-white font-semibold py-3 rounded-xl hover:bg-custom-orange transition"
             >
               Send Message
             </button>
@@ -62,7 +62,7 @@ const ContactSection = () => {
               {
                 icon: <MapPin className="w-5 h-5 text-white" />,
                 title: "Office",
-                info: "Akash Homes, Nr. Ujala Circle, S. G. Highway, Ahmedabad - 382210",
+                info: "314, PUNIT SHOPPING CENTRE, M G ROAD, JUNAGADH, GUJARAT - 362001",
                 bg: "bg-custom-blue",
               },
             ].map((item, idx) => (
@@ -83,18 +83,18 @@ const ContactSection = () => {
                           href={item.href1}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-custom-blue hover:text-custom-green"
+                          className="text-custom-blue hover:text-custom-orange"
                         >
-                          +91 8200528355
+                          +91 82005 28355
                         </a>{" "}
                         &nbsp;&nbsp; {/* extra space between numbers */}
                         <a
                           href={item.href2}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-custom-blue hover:text-custom-green"
+                          className="text-custom-blue hover:text-custom-orange"
                         >
-                          +91 9876543210
+                          +91 98765 43210
                         </a>
                       </>
                     ) : item.href ? (
@@ -102,7 +102,7 @@ const ContactSection = () => {
                         href="mailto:careandcomply@gmail.com"
                         target="_blank" // add this
                         rel="noopener noreferrer"
-                        className="text-custom-blue hover:text-custom-green"
+                        className="text-custom-blue hover:text-custom-orange"
                       >
                         {item.info}
                       </a>
@@ -119,7 +119,7 @@ const ContactSection = () => {
           <div className="relative rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition">
             <iframe
               title="Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.2018718062554!2d72.48761987407332!3d22.9796030179328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3cf72e58e3%3A0xe580fa91265c3b99!2sAakash%20Homes!5e0!3m2!1sen!2sin!4v1750702121327!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3711.7815933800493!2d70.4607617997877!3d21.51627316051569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s314%20PUNIT%20SHOPPING%20CENTRE%20MG%20ROAD%20JUNAGADH%20GUJARAT%20362001!5e0!3m2!1sen!2sin!4v1760380174621!5m2!1sen!2sin"
               width="100%"
               height="320"
               className="border-0 w-full h-[320px]"

@@ -8,6 +8,7 @@ module.exports = {
         "custom-green": "#49A947",
         "custom-light-blue": "#E0E7FF",
         "custom-orange": "#F57C00",
+        "custom-blue-light": "#1a1f5c"
       },
       fontFamily: {
         title: ['"Libre Baskerville"', "serif"],
