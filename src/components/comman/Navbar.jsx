@@ -6,7 +6,7 @@ const MENU_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Blogs", href: "/blogs" },
-  { label: "Our Team", href: "/our-team" },
+  // { label: "Our Team", href: "/our-team" },
   { label: "Contact Us", href: "/contact" }, // Update Contact Us link
 ];
 

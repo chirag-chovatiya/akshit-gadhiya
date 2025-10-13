@@ -50,7 +50,7 @@ const BlogSection = () => {
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900">
+          <h2 className="text-4xl font-extrabold text-custom-blue">
             Our Latest Insights
           </h2>
           <p className="mt-4 text-lg text-gray-600">

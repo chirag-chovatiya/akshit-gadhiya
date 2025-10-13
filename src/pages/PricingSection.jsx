@@ -44,9 +44,14 @@ const PricingSection = () => {
   return (
     <section className="py-16 bg-custom-blue/80 text-white">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center text-white mb-16">
-          Choose Your Power Plan
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold text-center text-white mb-4">
+            Choose Your Power Plan
+          </h2>
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+            Expert advice. Reliable solutions. Your growth, our priority.
+          </p>
+        </div>
         <div className="grid md:grid-cols-3 gap-10">
           {plans.map((plan, i) => (
             <div

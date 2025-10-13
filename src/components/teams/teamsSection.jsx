@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import TeamCard from "../TeamCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const teamMembers = [
   {
@@ -34,7 +35,47 @@ const teamMembers = [
     image: "/images/teams/team4.png",
     description: "Crafts marketing strategies that resonate.",
   },
+  {
+    id: 5,
+    name: "Emily White",
+    role: "Marketing Manager",
+    image: "/images/teams/team4.png",
+    description: "Crafts marketing strategies that resonate.",
+  },
+  {
+    id: 6,
+    name: "Emily White",
+    role: "Marketing Manager",
+    image: "/images/teams/team4.png",
+    description: "Crafts marketing strategies that resonate.",
+  },
+  {
+    id: 7,
+    name: "Emily White",
+    role: "Marketing Manager",
+    image: "/images/teams/team4.png",
+    description: "Crafts marketing strategies that resonate.",
+  },
 ];
+
+const NextArrow = ({ onClick }) => (
+  <div
+    className="absolute top-1/2 right-2 -translate-y-1/2 z-10 cursor-pointer text-custom-orange"
+    onClick={onClick}
+  >
+    <ChevronRight size={28} />
+  </div>
+);
+
+// Prev Arrow - custom-blue
+const PrevArrow = ({ onClick }) => (
+  <div
+    className="absolute top-1/2 left-2 -translate-y-1/2 z-10 cursor-pointer text-custom-blue"
+    onClick={onClick}
+  >
+    <ChevronLeft size={28} />
+  </div>
+);
 
 const TeamSection = () => {
   const [maxHeight, setMaxHeight] = useState(0);
@@ -45,29 +86,26 @@ const TeamSection = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
     ],
-    arrows: true,
   };
 
   return (
-    <div className="container mx-auto px-4 py-20">
-      <h2 className="text-4xl font-bold text-center mb-12 text-yellow-500">
-        Meet Our Expert Team
-      </h2>
-
+    <div className="container mx-auto px-4 py-16 relative">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl font-extrabold text-custom-blue">
+          Meet Our Expert Team
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+          Dedicated professionals committed to your financial success.
+        </p>
+      </div>
       <Slider {...settings}>
         {teamMembers.map((member, index) => (
           <div key={member.id} className="px-3">

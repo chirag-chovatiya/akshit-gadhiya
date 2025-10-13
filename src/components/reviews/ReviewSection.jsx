@@ -9,7 +9,7 @@ const ReviewSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-gray-50 py-16">
+    <section className="relative py-16">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-custom-blue mb-3">
           What Our Customers Say
