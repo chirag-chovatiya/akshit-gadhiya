@@ -6,6 +6,7 @@ import ServicesSection from "./ServicesSection";
 import PricingSection from "./PricingSection";
 import SectionWrapper from "../components/SectionWrapper"; // Import SectionWrapper
 import ReviewSection from "../components/reviews/ReviewSection";
+import TeamSection from "../components/teams/teamsSection";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -39,7 +40,10 @@ export default function Home() {
       <SectionWrapper variants={fadeInUp} delay={0.25}>
         <PricingSection />
       </SectionWrapper>
-      <SectionWrapper variants={scaleUp} delay={0.3}>
+      <SectionWrapper variants={scaleUp} delay={0.25}>
+        <TeamSection />
+      </SectionWrapper>
+      <SectionWrapper variants={fadeInUp} delay={0.3}>
         <BlogSection />
       </SectionWrapper>
       <SectionWrapper variants={scaleUp} delay={0.3}>
