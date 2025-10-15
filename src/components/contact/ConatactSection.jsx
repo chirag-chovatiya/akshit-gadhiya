@@ -41,7 +41,9 @@ const ContactSection = () => {
           </form>
         </div>
 
+        {/* Right: Contact Info */}
         <div className="space-y-8">
+          {/* Phone & Email */}
           <div className="grid gap-6">
             {[
               {
@@ -57,12 +59,6 @@ const ContactSection = () => {
                 title: "Email",
                 info: "contact@careandcomply.com",
                 href: "mailto:contact@careandcomply.com",
-                bg: "bg-custom-blue",
-              },
-              {
-                icon: <MapPin className="w-5 h-5 text-white" />,
-                title: "Office",
-                info: "314, PUNIT SHOPPING CENTRE, M G ROAD, JUNAGADH, GUJARAT - 362001",
                 bg: "bg-custom-blue",
               },
             ].map((item, idx) => (
@@ -87,7 +83,7 @@ const ContactSection = () => {
                         >
                           +91 82005 28355
                         </a>{" "}
-                        &nbsp;&nbsp; {/* extra space between numbers */}
+                        &nbsp;&nbsp;
                         <a
                           href={item.href2}
                           target="_blank"
@@ -99,8 +95,8 @@ const ContactSection = () => {
                       </>
                     ) : item.href ? (
                       <a
-                        href="mailto:careandcomply@gmail.com"
-                        target="_blank" // add this
+                        href={item.href}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-custom-blue hover:text-custom-orange"
                       >
@@ -115,20 +111,46 @@ const ContactSection = () => {
             ))}
           </div>
 
-          {/* Map */}
-          <div className="relative rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition">
-            <iframe
-              title="Office Location"
-              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3711.7815933800493!2d70.4607617997877!3d21.51627316051569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s314%20PUNIT%20SHOPPING%20CENTRE%20MG%20ROAD%20JUNAGADH%20GUJARAT%20362001!5e0!3m2!1sen!2sin!4v1760380174621!5m2!1sen!2sin"
-              width="100%"
-              height="320"
-              className="border-0 w-full h-[320px]"
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-            <div className="absolute bottom-4 left-4 bg-white/70 backdrop-blur-md rounded-lg p-3 shadow">
-              <p className="font-semibold text-custom-blue">Visit Our Office</p>
-            </div>
+          {/* Two Office Addresses Side by Side */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Registered Office",
+                info: "314, PUNIT SHOPPING CENTRE, M G ROAD, JUNAGADH, GUJARAT - 362001",
+                map: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3711.7815933800493!2d70.4607617997877!3d21.51627316051569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s314%20PUNIT%20SHOPPING%20CENTRE%20MG%20ROAD%20JUNAGADH%20GUJARAT%20362001!5e0!3m2!1sen!2sin!4v1760380174621!5m2!1sen!2sin",
+              },
+              {
+                title: "Corporate Office",
+                info: "O-301, Aarohi Crest,Arohi Crest Rd, Aaryan Gloria, South Bopal, Bopal, Ahmedabad, Gujarat 380058",
+                map: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3672.1329936171023!2d72.4680519!3d23.0188886!3m2!1i1024!2i768!4f13.1!2m1!1sO%20301%20Aarohi%20Crest%20Arohi%20Crest%20Rd%20Aaryan%20Gloria%20South%20Bopal%20Bopal%20Ahmedabad%20Gujarat%20380058!5e0!3m2!1sen!2sin!4v1760548613474!5m2!1sen!2sin",
+              },
+            ].map((office, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-5 shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-2 bg-custom-blue rounded-lg">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-custom-blue">
+                    {office.title}
+                  </h4>
+                </div>
+                <p className="text-gray-700 text-sm mb-4">{office.info}</p>
+                <div className="rounded-xl overflow-hidden border border-gray-200">
+                  <iframe
+                    title={office.title}
+                    src={office.map}
+                    width="100%"
+                    height="200"
+                    className="border-0 w-full h-[200px]"
+                    allowFullScreen=""
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
