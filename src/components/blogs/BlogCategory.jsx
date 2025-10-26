@@ -1,8 +1,8 @@
 import React from "react";
 
-const BlogCategory = ({ categories, selectedCategory, onSelectCategory }) => {
+const BlogCategory = ({ onSelectCategory, selectedCategory, categories = [] }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 mb-12">
+    <div className="flex flex-wrap justify-center gap-4">
       {categories.map((cat, index) => (
         <button
           key={`${cat}-${index}`}

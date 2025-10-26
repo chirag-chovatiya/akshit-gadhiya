@@ -16,7 +16,7 @@ const BlogCard = ({ blog }) => {
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
         <span className="absolute top-4 left-4 bg-custom-orange text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
-          {blog.category}
+          {blog.category.name}
         </span>
       </div>
 
