@@ -25,8 +25,8 @@ const BlogCard = ({ blog }) => {
         <h3 className="text-lg font-bold text-gray-900 hover:text-custom-blue transition line-clamp-2">
           {blog.title}
         </h3>
-        <div className="mt-3 text-gray-600 text-sm flex-1">
-          {parse(blog.description.split("</p>")[0] + "</p>")}
+        <div className="mt-3 text-gray-600 text-sm flex-1 line-clamp-2">
+          {blog.content ? parse(blog.content.split("</p>")[0] + "</p>") : ""}
         </div>
 
         <div className="mt-4 flex justify-between items-center text-sm text-gray-500">

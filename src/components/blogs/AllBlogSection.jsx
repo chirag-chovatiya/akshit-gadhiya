@@ -1,99 +1,96 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BlogCard from "../BlogCard";
 import BlogCategory from "./BlogCategory";
 import CallToActionSection from "../../pages/CallToActionSection";
-
-const dummyBlogs = [
-  {
-    id: 1,
-    title: "Understanding Income Tax: A Beginner's Guide",
-    description: `
-      <p>Income tax can be complicated, but understanding the basics helps you manage your finances effectively.</p>
-      <ul>
-        <li>Know your tax slab.</li>
-        <li>File returns on time.</li>
-        <li>Claim eligible deductions.</li>
-      </ul>
-      <p>Consulting a CA can save time and avoid penalties.</p>
-    `,
-    image: "/images/blog/blog1.png",
-    category: "Tax",
-    createdAt: "Sep 5, 2025",
-  },
-  {
-    id: 2,
-    title: "GST Compliance Made Easy",
-    description: `
-      <p>Goods and Services Tax (GST) is mandatory for most businesses. Staying compliant avoids legal trouble.</p>
-      <ol>
-        <li>Register for GST if your turnover exceeds the limit.</li>
-        <li>File monthly/quarterly GST returns.</li>
-        <li>Maintain proper invoices and records.</li>
-      </ol>
-      <p>A professional CA ensures your GST compliance is always up-to-date.</p>
-    `,
-    image: "/images/blog/blog2.png",
-    category: "GST",
-    createdAt: "Sep 2, 2025",
-  },
-  {
-    id: 3,
-    title: "Financial Planning for Small Businesses",
-    description: `
-      <p>Small business owners often struggle with managing cash flow and taxes.</p>
-      <ul>
-        <li>Create a clear budget and stick to it.</li>
-        <li>Keep track of expenses and revenue.</li>
-        <li>Plan for tax payments in advance.</li>
-      </ul>
-      <p>A CA can help with bookkeeping, tax planning, and financial advice.</p>
-    `,
-    image: "/images/blog/blog3.png",
-    category: "Finance",
-    createdAt: "Aug 28, 2025",
-  },
-  {
-    id: 4,
-    title: "Audit Preparedness: Tips for Businesses",
-    description: `
-      <p>Audits can be stressful if your records are disorganized.</p>
-      <ul>
-        <li>Maintain clear and accurate financial statements.</li>
-        <li>Ensure proper documentation for all transactions.</li>
-        <li>Regularly reconcile accounts.</li>
-      </ul>
-      <p>Engaging a CA before an audit can make the process smooth and hassle-free.</p>
-    `,
-    image: "/images/blog/blog4.png",
-    category: "Audit",
-    createdAt: "Aug 20, 2025",
-  },
-  {
-    id: 5,
-    title: "Audit Preparedness: Tips for Businesses",
-    description: `
-      <p>Audits can be stressful if your records are disorganized.</p>
-      <ul>
-        <li>Maintain clear and accurate financial statements.</li>
-        <li>Ensure proper documentation for all transactions.</li>
-        <li>Regularly reconcile accounts.</li>
-      </ul>
-      <p>Engaging a CA before an audit can make the process smooth and hassle-free.</p>
-    `,
-    image: "/images/blog/blog4.png",
-    category: "Audit",
-    createdAt: "Aug 20, 2025",
-  },
-];
+import { getAllBlog } from "../../service/blog-api"; // Import the API call
 
 const AllBlogSection = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const categories = ["All", ...new Set(dummyBlogs.map((b) => b.category))];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(true);
 
-  const filteredBlogs =
-    selectedCategory === "All"
-      ? dummyBlogs
-      : dummyBlogs.filter((b) => b.category === selectedCategory);
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      try {
+        const response = await getAllBlog(currentPage, selectedCategory);
+        if (response && response.data && response.data.posts) {
+          console.log("Fetched Blogs:", response.data.posts);
+          setBlogs(response.data.posts);
+          setTotalPages(response.data.totalPages);
+          // Extract categories from fetched blogs
+          const uniqueCategories = [
+            "All",
+            ...new Set(response.data.posts.map((b) => b.category)),
+          ];
+          setCategories(uniqueCategories);
+        } else {
+          setBlogs([]);
+          setTotalPages(1);
+          setCategories(["All"]);
+        }
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setBlogs([]);
+        setTotalPages(1);
+        setCategories(["All"]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, [currentPage, selectedCategory]); // Re-fetch when page or category changes
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1); // Reset to first page when category changes
+  };
+
+  const renderPagination = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`mx-1 px-3 py-1 rounded ${
+            currentPage === i ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return (
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="mx-1 px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+        >
+          Previous
+        </button>
+        {pageNumbers}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="mx-1 px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
+    );
+  };
 
   return (
     <section className=" bg-gray-50">
@@ -101,15 +98,24 @@ const AllBlogSection = () => {
         <BlogCategory
           categories={categories}
           selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
+          onSelectCategory={handleCategorySelect}
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredBlogs.map((blog) => (
-            <div key={blog.id}>
-              <BlogCard blog={blog} />
+        {loading ? (
+          <div className="text-center py-8">Loading blogs...</div>
+        ) : blogs.length > 0 ? (
+          <>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogs.map((blog) => (
+                <div key={blog.id}>
+                  <BlogCard blog={blog} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+            {totalPages > 1 && renderPagination()}
+          </>
+        ) : (
+          <div className="text-center py-8">No blogs found.</div>
+        )}
       </div>
       <CallToActionSection />
     </section>

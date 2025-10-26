@@ -3,9 +3,9 @@ import React from "react";
 const BlogCategory = ({ categories, selectedCategory, onSelectCategory }) => {
   return (
     <div className="flex flex-wrap justify-center gap-4 mb-12">
-      {categories.map((cat) => (
+      {categories.map((cat, index) => (
         <button
-          key={cat}
+          key={`${cat}-${index}`}
           onClick={() => onSelectCategory(cat)}
           className={`px-5 py-2 rounded-full font-medium transition-all duration-300
             ${
