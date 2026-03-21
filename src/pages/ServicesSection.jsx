@@ -1,5 +1,12 @@
 import React from "react";
-import { ShieldCheck, DollarSign, HeartHandshake, Scale } from "lucide-react";
+import {
+  ShieldCheck,
+  DollarSign,
+  HeartHandshake,
+  Scale,
+  MessageSquare,
+  Mail,
+} from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -38,7 +45,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl font-extrabold text-custom-blue mb-4">
             Our Services
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -47,44 +54,63 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group [perspective:1000px] cursor-pointer"
               >
-                {/* Gradient Overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 transition duration-500`}
-                />
-
-                <div className="relative p-8 flex flex-col h-full">
-                  {/* Icon */}
+                  className="relative h-full bg-white rounded-2xl shadow-lg border border-gray-100 
+                  transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(15deg)]
+                  hover:shadow-2xl"
+                >
+                  {/* Gradient overlay for depth */}
                   <div
-                    className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r ${service.color} text-white shadow-md mb-6 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon size={28} />
+                    className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-10 transition duration-500 rounded-2xl`}
+                  />
+
+                  <div className="relative p-8 flex flex-col h-full">
+                    {/* Icon */}
+                    <div
+                      className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-r ${service.color} text-white shadow-md mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Icon size={28} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-600 flex-grow group-hover:text-gray-700 transition-colors duration-300">
+                      {service.description}
+                    </p>
+
+                    {/* Button */}
+                    <div className="mt-6 flex space-x-4">
+                      <a
+                        href="mailto:contact@careandcomply.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-custom-blue text-white hover:bg-custom-orange transition-all duration-300 shadow-md"
+                      >
+                        <i className="fa-solid fa-envelope text-xl"></i>
+                      </a>
+
+                      <a
+                        href="https://wa.me/918200528355"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 text-white hover:bg-green-600 transition-all duration-300 shadow-md"
+                      >
+                        <i className="fa-brands fa-whatsapp text-2xl"></i>
+                      </a>
+                    </div>
                   </div>
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-gray-800">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 flex-grow group-hover:text-gray-700 transition-colors duration-300">
-                    {service.description}
-                  </p>
-
-                  {/* Button */}
-                  <a
-                    href="/contact"
-                    className="mt-6 inline-block bg-gray-900 text-white px-5 py-2 rounded-lg 
-             transition-colors duration-300 text-center 
-             hover:bg-[#49A947]"
-                  >
-                    Contact Us
-                  </a>
                 </div>
               </div>
             );

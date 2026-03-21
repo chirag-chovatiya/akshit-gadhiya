@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "../components/BlogCard";
 import Button from "../components/button";
+import { Link } from "react-router-dom";
 
 const dummyBlogs = [
   {
@@ -45,11 +46,11 @@ const BlogSection = () => {
   const [featured, ...others] = dummyBlogs;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900">
+          <h2 className="text-4xl font-extrabold text-custom-blue">
             Our Latest Insights
           </h2>
           <p className="mt-4 text-lg text-gray-600">
@@ -66,7 +67,7 @@ const BlogSection = () => {
               alt={featured.title}
               className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <span className="absolute top-5 left-5 bg-custom-green text-white px-4 py-1 rounded-full text-xs font-semibold uppercase shadow">
+            <span className="absolute top-5 left-5 bg-custom-orange text-white px-4 py-1 rounded-full text-xs font-semibold uppercase shadow">
               {featured.category}
             </span>
           </div>
@@ -82,12 +83,11 @@ const BlogSection = () => {
             <p className="text-sm text-gray-500 mb-6">
               📅 {featured.createdAt}
             </p>
-            <a
-              href="#"
-              className="self-start bg-custom-blue hover:bg-custom-green text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg"
-            >
-              Read Full Article →
-            </a>
+            <Button
+              text="Read Full Article →"
+              href={`/blog/${featured.id}`}
+              className="w-48"
+            />
           </div>
         </div>
 
@@ -103,7 +103,7 @@ const BlogSection = () => {
           <Button
             text="View All Insights"
             href="/blogs"
-            className="inline-block bg-custom-blue text-white px-10 py-3 rounded-full text-lg font-bold hover:bg-custom-green transition shadow-lg"
+            
           />
         </div>
       </div>

@@ -15,8 +15,8 @@ const BlogCard = ({ blog }) => {
           alt={blog.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
-        <span className="absolute top-4 left-4 bg-custom-green text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
-          {blog.category}
+        <span className="absolute top-4 left-4 bg-custom-orange text-white px-3 py-1 rounded-full text-xs font-semibold uppercase shadow">
+          {blog.category.name}
         </span>
       </div>
 
@@ -25,13 +25,13 @@ const BlogCard = ({ blog }) => {
         <h3 className="text-lg font-bold text-gray-900 hover:text-custom-blue transition line-clamp-2">
           {blog.title}
         </h3>
-        <div className="mt-3 text-gray-600 text-sm flex-1">
-          {parse(blog.description.split("</p>")[0] + "</p>")}
+        <div className="mt-3 text-gray-600 text-sm flex-1 line-clamp-2">
+          {blog.content ? parse(blog.content.split("</p>")[0] + "</p>") : ""}
         </div>
 
         <div className="mt-4 flex justify-between items-center text-sm text-gray-500">
           <span>📅 {blog.createdAt}</span>
-          <span className="font-semibold text-custom-blue hover:text-custom-green transition">
+          <span className="font-semibold text-custom-blue hover:text-custom-orange transition">
             Read →
           </span>
         </div>

@@ -1,30 +1,74 @@
 import React from "react";
+import { MessageCircle } from "lucide-react";
+
+// Dynamic contact data
+const contactData = [
+  {
+    type: "Phone",
+    icon: <i className="fa-solid fa-phone-volume text-2xl text-custom-orange"></i>,
+    title: "+91 82005 28355",
+    subtitle: "07:00 - 19:00 | Monday to Saturday",
+    link: "tel:+918200528355",
+  },
+  {
+    type: "Email",
+    icon: <i className="fa-solid fa-envelope text-2xl text-custom-orange"></i>,
+    title: "contact@careandcomply.com",
+    subtitle: "07:00 - 19:00 | Monday to Saturday",
+    link: "mailto:contact@careandcomply.com",
+  },
+  {
+    type: "Whatsapp",
+    icon: <i className="fa-brands fa-whatsapp text-custom-green text-2xl"></i>,
+    title: "Whatsapp Us",
+    subtitle: "07:00 - 19:00 | Monday to Saturday",
+    link: "https://wa.me/918200528355",
+  },
+];
 
 const CallToActionSection = () => {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
-      {/* Background decorative blobs */}
-      <div className="absolute top-[-80px] left-[-80px] w-96 h-96 bg-blue-200 rounded-full opacity-30 blur-3xl"></div>
-      <div className="absolute bottom-[-80px] right-[-80px] w-96 h-96 bg-custom-green rounded-full opacity-20 blur-3xl"></div>
+    <section className="bg-custom-blue/80 py-16 text-white">
+      <div className="container mx-auto px-6 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-center">
+          <h2 className="text-3xl font-semibold">
+            Speak to one of our expert team members
+          </h2>
+          <MessageCircle className="w-10 h-10 text-custom-orange" />
+        </div>
 
-      <div className="relative container mx-auto px-6">
-        <div className="bg-white/80 backdrop-blur-lg shadow-2xl rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between border border-gray-100">
-          {/* Text */}
-          <div className="md:w-2/3 text-center md:text-left mb-8 md:mb-0">
-            <h2 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-              Ensure Full Compliance - Schedule Your Consultation Today!
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 opacity-90">
-              Get Started Today Ready to ensure your business is fully compliant? Contact us today to schedule a consultation or explore our services further to see how we can assist you.
-            </p>
-          </div>
+        <hr className="border-t border-white my-8 mx-28" />
 
-          {/* Button */}
-          <div className="md:w-1/3 flex justify-center md:justify-end">
-            <button className="bg-gradient-to-r from-custom-blue to-custom-green text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition transform hover:scale-110">
-              Connect With Us
-            </button>
-          </div>
+        <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-8 md:space-y-0">
+          {contactData.map((contact, index) => (
+            <a
+              key={index}
+              href={contact.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-6 w-full md:w-1/2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 block"
+            >
+              {/* Top badge */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-custom-orange text-white px-4 py-1 rounded-md text-sm font-semibold shadow-md">
+                {contact.type}
+              </div>
+
+              {/* Icon and Content */}
+              <div className="flex flex-col items-center space-y-3">
+                <div className="text-custom-orange text-5xl">
+                  {contact.icon}
+                </div>
+                <p className="text-lg font-bold text-white">{contact.title}</p>
+                <p className="text-sm text-gray-300 text-center">
+                  {contact.subtitle}
+                </p>
+              </div>
+
+              {/* Optional floating circle effect */}
+              <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-custom-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-custom-orange/20 rounded-full blur-2xl pointer-events-none"></div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
