@@ -16,7 +16,7 @@ const BlogDetailsSection = () => {
       try {
         setLoading(true);
         const data = await getBlogById(id);
-        setBlog(data);
+        setBlog(data?.data);
       } catch (err) {
         setError(err);
       } finally {
@@ -85,7 +85,7 @@ const BlogDetailsSection = () => {
                 className="w-full object-cover"
               />
               <div className="absolute bottom-4 left-4 bg-custom-blue px-3 py-1 rounded-full text-white text-xs font-semibold">
-                {blog.category}
+                {blog.category?.name}
               </div>
             </div>
 
@@ -97,7 +97,7 @@ const BlogDetailsSection = () => {
               <p className="text-sm text-gray-500 mb-6">📅 {blog.createdAt}</p>
               <div
                 className="prose prose-lg text-gray-700 max-w-none"
-                dangerouslySetInnerHTML={{ __html: blog.description }}
+                dangerouslySetInnerHTML={{ __html: blog.content }}
               ></div>
             </div>
           </div>
